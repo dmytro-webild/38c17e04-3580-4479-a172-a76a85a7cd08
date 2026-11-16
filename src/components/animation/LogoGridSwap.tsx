@@ -192,15 +192,13 @@ const LogoGridSwap = ({ names, clients, cellClassName = "h-32 sm:h-36 md:h-40 ro
                     exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.8, ease: EASE } }}
                     className="absolute inset-0 backface-hidden flex items-center justify-center p-3 select-none"
                   >
-                    <div className="bg-white/95 rounded-xl p-3 md:p-4 flex items-center justify-center shadow-md border border-white/20 w-[92%] h-[84%] transition-transform duration-300 hover:scale-[1.04]">
-                      <img
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        className="max-h-16 md:max-h-20 w-auto max-w-[90%] object-contain mix-blend-multiply brightness-105 contrast-110"
-                        loading="eager"
-                        decoding="async"
-                      />
-                    </div>
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="max-h-16 md:max-h-20 w-auto max-w-[80%] object-contain"
+                      loading="eager"
+                      decoding="async"
+                    />
                   </motion.div>
                 ) : (
                   <motion.span

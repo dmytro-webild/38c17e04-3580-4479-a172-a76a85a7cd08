@@ -8,7 +8,6 @@ import ContactCenter from "@/components/sections/contact/ContactCenter";
 import ProjectRowsPreview from "@/components/animation/ProjectRowsPreview";
 import LogoGridSwap from "@/components/animation/LogoGridSwap";
 import TestimonialsCards from "@/components/sections/testimonials/TestimonialsCards";
-import TrustBanner from "@/components/sections/trust/TrustBanner";
 import FaqSection from "@/components/sections/faq/FaqSection";
 import LightRaysCornerBackground from "@/components/backgrounds/LightRaysCornerBackground";
 import AppearOnScroll from "@/components/animation/AppearOnScroll";
@@ -72,11 +71,6 @@ export default function HomePage() {
             }
           ]}
         />
-      </div>
-
-      {/* Security & Certifications Trust Banner */}
-      <div id="trust" data-webild-section="TrustBanner" data-webild-section-id="TrustBanner-1" data-section="trust">
-        <TrustBanner />
       </div>
 
       {/* About Section */}
