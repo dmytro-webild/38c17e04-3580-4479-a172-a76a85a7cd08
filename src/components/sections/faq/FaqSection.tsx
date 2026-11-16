@@ -18,7 +18,7 @@ export default function FaqSection() {
     {
       title: "What cybersecurity standards protect your software platforms?",
       content:
-        "Our engineering protocols are backed by official Cisco Ethical Hacker, Cisco Cybersecurity, and Google Cybersecurity credentials. We build all applications following ISO/IEC 27001, SOC 2 Type II, and OWASP Top 10 security guidelines."
+        "Our engineering protocols are backed by official Cisco Ethical Hacker, Cisco Cybersecurity, and Google Cybersecurity credentials. We build all applications following ISO/IEC 27001 security guidelines."
     },
     {
       title: "Can Veloce Labs build customized ERP, CRM, or PLM systems for our company?",

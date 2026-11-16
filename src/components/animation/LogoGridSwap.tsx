@@ -47,25 +47,28 @@ const DEFAULT_CLIENTS: ClientItem[] = [
   },
   {
     name: "Asel Mobile",
-    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161848-w07i0qd7.webp"
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843807-s1vuun7j.webp"
   },
   {
     name: "Mabfem Engineering",
-    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-ttsz614l.png"
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843806-a9big4co.png"
   },
   {
     name: "Webac",
-    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-guc6mwbv.jpg"
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843808-hn7i92db.png"
   },
   {
     name: "Colix",
     logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-1kqy9xa2.jpg"
   },
   {
+    name: "MA Tradition",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843807-0r036fna.jpg"
+  },
+  {
     name: "Crystal Clear Tech",
     logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
   },
-  { name: "MA Tradition" },
   { name: "MedVance Tech" },
   { name: "FinSecure" },
   { name: "ScaleStack" },
@@ -189,11 +192,11 @@ const LogoGridSwap = ({ names, clients, cellClassName = "h-32 sm:h-36 md:h-40 ro
                     exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.8, ease: EASE } }}
                     className="absolute inset-0 backface-hidden flex items-center justify-center p-3 select-none"
                   >
-                    <div className="bg-white rounded-xl p-3 md:p-4 flex items-center justify-center shadow-lg w-[90%] h-[84%] transition-transform duration-300 hover:scale-[1.03]">
+                    <div className="bg-white/95 rounded-xl p-3 md:p-4 flex items-center justify-center shadow-md border border-white/20 w-[92%] h-[84%] transition-transform duration-300 hover:scale-[1.04]">
                       <img
                         src={client.logo}
                         alt={`${client.name} logo`}
-                        className="max-h-16 md:max-h-20 w-auto max-w-[92%] object-contain"
+                        className="max-h-16 md:max-h-20 w-auto max-w-[90%] object-contain mix-blend-multiply brightness-105 contrast-110"
                         loading="eager"
                         decoding="async"
                       />

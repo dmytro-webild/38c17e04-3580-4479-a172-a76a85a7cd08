@@ -1,6 +1,6 @@
 import AppearOnScroll from "@/components/animation/AppearOnScroll";
 import GradientWordReveal from "@/components/animation/GradientWordReveal";
-import { ShieldCheck, CheckCircle2, Award, FileCheck, Lock, Cloud } from "lucide-react";
+import { ShieldCheck, CheckCircle2, Award, Cloud } from "lucide-react";
 
 interface BadgeItem {
   id: string;
@@ -11,7 +11,7 @@ interface BadgeItem {
   badgeBg: string;
   accentColor: string;
   badgeTag: string;
-  icon: "cisco-ethical" | "cisco-cyber" | "google-cyber" | "iso" | "soc2" | "owasp" | "cloud";
+  icon: "cisco-ethical" | "cisco-cyber" | "google-cyber" | "iso" | "cloud";
 }
 
 const BADGES: BadgeItem[] = [
@@ -58,28 +58,6 @@ const BADGES: BadgeItem[] = [
     accentColor: "from-amber-400 via-yellow-500 to-orange-600",
     badgeBg: "bg-amber-950/50 border-amber-500/50 text-amber-300",
     icon: "iso"
-  },
-  {
-    id: "soc-2",
-    title: "SOC 2 Type II",
-    issuer: "AICPA Standard",
-    category: "AICPA Standard",
-    subtitle: "Rigorous Security, Availability & Confidentiality Audit Controls",
-    badgeTag: "AICPA Standard VERIFIED",
-    accentColor: "from-emerald-400 via-teal-500 to-green-600",
-    badgeBg: "bg-emerald-950/50 border-emerald-500/50 text-emerald-300",
-    icon: "soc2"
-  },
-  {
-    id: "owasp",
-    title: "OWASP Top 10",
-    issuer: "OWASP Foundation",
-    category: "AppSec Standard",
-    subtitle: "Hardened Web & API Application Security & Audit Standards",
-    badgeTag: "AppSec Standard VERIFIED",
-    accentColor: "from-violet-400 via-purple-500 to-indigo-600",
-    badgeBg: "bg-violet-950/50 border-violet-500/50 text-violet-300",
-    icon: "owasp"
   },
   {
     id: "cloud-security",
@@ -163,22 +141,6 @@ const RenderHDBadgeIcon = ({ icon }: { icon: BadgeItem["icon"] }) => {
     );
   }
 
-  if (icon === "soc2") {
-    return (
-      <div className="flex items-center justify-center size-14 rounded-2xl bg-gradient-to-br from-emerald-950 via-teal-950 to-green-950 border border-emerald-400/40 p-2.5 shrink-0 shadow-lg shadow-emerald-950/50 text-emerald-300">
-        <FileCheck className="size-9" strokeWidth={1.8} />
-      </div>
-    );
-  }
-
-  if (icon === "owasp") {
-    return (
-      <div className="flex items-center justify-center size-14 rounded-2xl bg-gradient-to-br from-violet-950 via-purple-950 to-indigo-950 border border-violet-400/40 p-2.5 shrink-0 shadow-lg shadow-violet-950/50 text-violet-300">
-        <Lock className="size-9" strokeWidth={1.8} />
-      </div>
-    );
-  }
-
   return (
     <div className="flex items-center justify-center size-14 rounded-2xl bg-gradient-to-br from-sky-950 via-blue-950 to-cyan-950 border border-sky-400/40 p-2.5 shrink-0 shadow-lg shadow-sky-950/50 text-sky-300">
       <Cloud className="size-9" strokeWidth={1.8} />
@@ -254,7 +216,7 @@ export default function TrustBanner() {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
         <div className="flex w-max gap-6 animate-marquee-horizontal-reverse [animation-duration:35s] hover:[animation-play-state:paused]">
-          {[...BADGES, ...BADGES, ...BADGES].map((badge, idx) => (
+          {[...BADGES, ...BADGES, ...BADGES, ...BADGES].map((badge, idx) => (
             <BadgeCard key={`${badge.id}-${idx}`} badge={badge} />
           ))}
         </div>

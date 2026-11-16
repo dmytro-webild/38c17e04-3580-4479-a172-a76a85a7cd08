@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, MessageSquare } from "lucide-react";
+import { MapPin, MessageSquare, Mail, Phone } from "lucide-react";
 import AppearOnScroll from "@/components/animation/AppearOnScroll";
 import WordByWordReveal from "@/components/animation/WordByWordReveal";
 import GradientWordReveal from "@/components/animation/GradientWordReveal";
@@ -93,6 +93,36 @@ const ContactCenter = ({
               className="md:max-w-9/10 text-base md:text-lg 2xl:text-xl leading-snug text-center text-balance text-foreground/80"
             />
 
+            {/* Quick Contact Icons under Get Started Header */}
+            <div className="my-3 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="https://wa.me/21650564964"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs sm:text-sm font-medium transition-all duration-200 hover:scale-[1.03]"
+                title="Chat on WhatsApp (+216 50 564 964)"
+              >
+                <MessageSquare className="size-4 shrink-0 text-emerald-400" />
+                <span>WhatsApp (+216 50 564 964)</span>
+              </a>
+              <a
+                href="mailto:mohebawichewi9@gmail.com"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs sm:text-sm font-medium transition-all duration-200 hover:scale-[1.03]"
+                title="Send an email (mohebawichewi9@gmail.com)"
+              >
+                <Mail className="size-4 shrink-0 text-blue-400" />
+                <span>Email (mohebawichewi9@gmail.com)</span>
+              </a>
+              <a
+                href="tel:+21650564964"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs sm:text-sm font-medium transition-all duration-200 hover:scale-[1.03]"
+                title="Call (+216 50 564 964)"
+              >
+                <Phone className="size-4 shrink-0 text-cyan-400" />
+                <span>Phone (+216 50 564 964)</span>
+              </a>
+            </div>
+
             {address && (
               <div className="flex items-center gap-2 mt-1 px-4 py-2 card rounded-full text-sm text-foreground/85">
                 <MapPin className="w-4 h-4 text-primary-cta shrink-0" />
@@ -128,16 +158,43 @@ const ContactCenter = ({
               </button>
             </form>
 
-            <div className="mt-2 flex items-center justify-center gap-2">
-              <a
-                href="https://wa.me/21650564964"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-primary-cta hover:underline font-medium"
-              >
-                <MessageSquare className="size-4" />
-                <span>Or chat directly on WhatsApp at +216 50 564 964</span>
-              </a>
+            <div className="mt-4 flex flex-col items-center gap-3 w-full">
+              <span className="text-xs uppercase tracking-wider text-foreground/60 font-mono font-semibold">
+                Or connect directly via
+              </span>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {/* WhatsApp Button */}
+                <a
+                  href="https://wa.me/21650564964"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-sm font-medium transition-all duration-200 hover:scale-[1.03] shadow-sm"
+                  title="Chat on WhatsApp (+216 50 564 964)"
+                >
+                  <MessageSquare className="size-4 shrink-0 text-emerald-400" />
+                  <span>WhatsApp (+216 50 564 964)</span>
+                </a>
+
+                {/* Email Button */}
+                <a
+                  href="mailto:mohebawichewi9@gmail.com"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 text-sm font-medium transition-all duration-200 hover:scale-[1.03] shadow-sm"
+                  title="Send an email (mohebawichewi9@gmail.com)"
+                >
+                  <Mail className="size-4 shrink-0 text-blue-400" />
+                  <span>Email (mohebawichewi9@gmail.com)</span>
+                </a>
+
+                {/* Phone Call Button */}
+                <a
+                  href="tel:+21650564964"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-sm font-medium transition-all duration-200 hover:scale-[1.03] shadow-sm"
+                  title="Call (+216 50 564 964)"
+                >
+                  <Phone className="size-4 shrink-0 text-cyan-400" />
+                  <span>Phone (+216 50 564 964)</span>
+                </a>
+              </div>
             </div>
 
             {error && (
