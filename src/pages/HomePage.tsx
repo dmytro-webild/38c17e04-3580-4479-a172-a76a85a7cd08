@@ -8,6 +8,7 @@ import ContactCenter from "@/components/sections/contact/ContactCenter";
 import ProjectRowsPreview from "@/components/animation/ProjectRowsPreview";
 import LogoGridSwap from "@/components/animation/LogoGridSwap";
 import TestimonialsCards from "@/components/sections/testimonials/TestimonialsCards";
+import TrustBanner from "@/components/sections/trust/TrustBanner";
 import LightRaysCornerBackground from "@/components/backgrounds/LightRaysCornerBackground";
 import AppearOnScroll from "@/components/animation/AppearOnScroll";
 import GradientWordReveal from "@/components/animation/GradientWordReveal";
@@ -34,7 +35,7 @@ export default function HomePage() {
           }}
           primaryButton={{
             text: "Start Your Project",
-            href: "#contact"
+            href: "https://wa.me/21650564964"
           }}
           secondaryButton={{
             text: "Explore Projects",
@@ -72,13 +73,18 @@ export default function HomePage() {
         />
       </div>
 
+      {/* Security & Certifications Trust Banner */}
+      <div id="trust" data-webild-section="TrustBanner" data-webild-section-id="TrustBanner-1" data-section="trust">
+        <TrustBanner />
+      </div>
+
       {/* About Section */}
       <div id="about" data-webild-section="AboutTextWave" data-webild-section-id="AboutTextWave-1" data-section="about">
         <AboutTextWave
           title="At Veloce Labs, we build high-performance software systems—from tailored ERP, CRM, and PLM architectures to robust cybersecurity platforms. We launch our own startups and partner with founders to create scalable SaaS products."
           primaryButton={{
             text: "Start Your Project",
-            href: "#contact"
+            href: "https://wa.me/21650564964"
           }}
           secondaryButton={{
             text: "Our Services",
@@ -98,7 +104,7 @@ export default function HomePage() {
           title="Custom apps, enterprise systems & SaaS."
           primaryButton={{
             text: "Get in Touch",
-            href: "#contact"
+            href: "https://wa.me/21650564964"
           }}
           secondaryButton={{
             text: "See Pricing",
@@ -287,6 +293,14 @@ export default function HomePage() {
           <LogoGridSwap
             clients={[
               {
+                name: "DataLine Services",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794866719552-zyimggke.jpg"
+              },
+              {
+                name: "Chamsana",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794866719553-tiocgpo0.jpg"
+              },
+              {
                 name: "Asel Mobile",
                 logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161848-w07i0qd7.webp"
               },
@@ -306,12 +320,10 @@ export default function HomePage() {
                 name: "Crystal Clear Tech",
                 logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
               },
+              { name: "MA Tradition" },
               { name: "MedVance Tech" },
               { name: "FinSecure" },
               { name: "ScaleStack" },
-              { name: "Apex Capital" },
-              { name: "Logistics One" },
-              { name: "Nexus Cloud" },
               { name: "Veloce Startups" }
             ]}
           />
@@ -366,7 +378,7 @@ export default function HomePage() {
               description: "Ideal for early-stage founders and quick app validation.",
               primaryButton: {
                 text: "Get Started",
-                href: "#contact"
+                href: "https://wa.me/21650564964"
               },
               features: [
                 "Custom web or mobile app MVP build",
@@ -382,7 +394,7 @@ export default function HomePage() {
               description: "Full-scale custom web/mobile apps & SaaS platforms.",
               primaryButton: {
                 text: "Get Started",
-                href: "#contact"
+                href: "https://wa.me/21650564964"
               },
               features: [
                 "Tailored full-stack SaaS or web/mobile app",
@@ -398,7 +410,7 @@ export default function HomePage() {
               description: "Custom ERP, CRM, PLM & Cyber Security ecosystems.",
               primaryButton: {
                 text: "Get Started",
-                href: "#contact"
+                href: "https://wa.me/21650564964"
               },
               features: [
                 "Customized ERP, CRM & PLM development",
@@ -415,7 +427,7 @@ export default function HomePage() {
             description: "Looking to co-build a venture or launch a breakthrough SaaS with Veloce Labs? We partner with founders and enterprise innovators.",
             primaryButton: {
               text: "Talk to Founder",
-              href: "#contact"
+              href: "https://wa.me/21650564964"
             }
           }}
         />
