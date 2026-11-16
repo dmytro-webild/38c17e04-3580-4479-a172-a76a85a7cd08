@@ -8,27 +8,35 @@ export default function Layout() {
       <header data-webild-section="Header">
         <NavbarCentered
           buttonStagger
-          logo="MERYDIAN"
+          logo="VELOCE LABS"
           navItems={[
             {
               name: "Services",
               href: "#services"
             },
             {
-              name: "Results",
-              href: "#results"
+              name: "Projects",
+              href: "#projects"
+            },
+            {
+              name: "Clients",
+              href: "#clients"
+            },
+            {
+              name: "Testimonials",
+              href: "#testimonials"
             },
             {
               name: "Pricing",
               href: "#pricing"
             },
             {
-              name: "Team",
+              name: "Leadership",
               href: "#team"
             }
           ]}
           ctaButton={{
-            text: "Book a Free Audit",
+            text: "Get in Touch",
             href: "#contact"
           }}
         />
@@ -38,22 +46,43 @@ export default function Layout() {
       </main>
       <footer data-webild-section="Footer">
         <FooterSimpleReveal
-          brand="MERYDIAN"
+          brand="VELOCE LABS"
           columns={[
             {
-              title: "Services",
+              title: "Solutions",
               items: [
                 {
-                  label: "What We Automate",
+                  label: "Customized Apps",
                   href: "#services"
                 },
                 {
-                  label: "Results",
-                  href: "#results"
+                  label: "Enterprise ERP, CRM & PLM",
+                  href: "#services"
                 },
                 {
-                  label: "Pricing",
-                  href: "#pricing"
+                  label: "Cyber Security",
+                  href: "#services"
+                },
+                {
+                  label: "SaaS & Startup Studio",
+                  href: "#services"
+                }
+              ]
+            },
+            {
+              title: "Portfolio",
+              items: [
+                {
+                  label: "Projects",
+                  href: "#projects"
+                },
+                {
+                  label: "Clients",
+                  href: "#clients"
+                },
+                {
+                  label: "Testimonials",
+                  href: "#testimonials"
                 }
               ]
             },
@@ -61,34 +90,25 @@ export default function Layout() {
               title: "Company",
               items: [
                 {
-                  label: "Team",
+                  label: "About Veloce Labs",
+                  href: "#about"
+                },
+                {
+                  label: "Pricing",
+                  href: "#pricing"
+                },
+                {
+                  label: "Leadership",
                   href: "#team"
                 },
                 {
                   label: "Contact",
                   href: "#contact"
-                },
-                {
-                  label: "Book a Free Audit",
-                  href: "#contact"
-                }
-              ]
-            },
-            {
-              title: "Legal",
-              items: [
-                {
-                  label: "Terms of Service",
-                  href: "#"
-                },
-                {
-                  label: "Privacy Policy",
-                  href: "#"
                 }
               ]
             }
           ]}
-          copyright="© 2026 Merydian. All rights reserved."
+          copyright="© 2026 Veloce Labs. All rights reserved."
           links={[
             {
               label: "Terms",

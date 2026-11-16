@@ -101,7 +101,7 @@ const PricingLayeredEnterprise = ({
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <p className="text-4xl md:text-5xl 2xl:text-6xl font-semibold leading-none">{plan.price}</p>
+                  <p className="text-3xl md:text-4xl 2xl:text-5xl font-semibold leading-none tracking-tight">{plan.price}</p>
                   <p className="text-base font-medium">{plan.description}</p>
                 </div>
 
