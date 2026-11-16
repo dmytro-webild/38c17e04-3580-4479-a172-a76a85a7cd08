@@ -303,25 +303,28 @@ export default function HomePage() {
               },
               {
                 name: "Asel Mobile",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161848-w07i0qd7.webp"
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843807-s1vuun7j.webp"
               },
               {
                 name: "Mabfem Engineering",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-ttsz614l.png"
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843806-a9big4co.png"
               },
               {
                 name: "Webac",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-guc6mwbv.jpg"
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843808-hn7i92db.png"
               },
               {
                 name: "Colix",
                 logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-1kqy9xa2.jpg"
               },
               {
+                name: "MA Tradition",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843807-0r036fna.jpg"
+              },
+              {
                 name: "Crystal Clear Tech",
                 logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
               },
-              { name: "MA Tradition" },
               { name: "MedVance Tech" },
               { name: "FinSecure" },
               { name: "ScaleStack" },
