@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MapPin } from "lucide-react";
 import AppearOnScroll from "@/components/animation/AppearOnScroll";
 import WordByWordReveal from "@/components/animation/WordByWordReveal";
 import GradientWordReveal from "@/components/animation/GradientWordReveal";
@@ -10,6 +11,7 @@ type ContactCenterProps = {
   description: string;
   inputPlaceholder: string;
   buttonText: string;
+  address?: string;
   onSubmit?: (email: string) => void;
   titleGradient?: boolean;
   buttonStagger?: boolean;
@@ -23,6 +25,7 @@ const ContactCenter = ({
   description,
   inputPlaceholder,
   buttonText,
+  address,
   onSubmit,
   titleGradient,
   buttonStagger,
@@ -80,6 +83,13 @@ const ContactCenter = ({
               tag="p"
               className="md:max-w-9/10 text-base md:text-lg 2xl:text-xl leading-snug text-center text-balance"
             />
+
+            {address && (
+              <div className="flex items-center gap-2 mt-2 px-4 py-2 card rounded-full text-sm text-foreground/85">
+                <MapPin className="w-4 h-4 text-primary-cta shrink-0" />
+                <span>{address}</span>
+              </div>
+            )}
 
             <form
               onSubmit={handleSubmit}

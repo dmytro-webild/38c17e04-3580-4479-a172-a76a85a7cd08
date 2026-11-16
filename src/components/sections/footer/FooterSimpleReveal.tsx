@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { MapPin } from "lucide-react";
 
 type FooterColumn = {
   title: string;
@@ -37,11 +38,13 @@ const FooterBottomLink = ({ label, href, onClick }: FooterLink) => {
 
 const FooterSimpleReveal = ({
   brand,
+  address,
   columns,
   copyright,
   links,
 }: {
   brand: string;
+  address?: string;
   columns: FooterColumn[];
   copyright: string;
   links: FooterLink[];
@@ -86,7 +89,15 @@ const FooterSimpleReveal = ({
         >
           <div className="w-full max-w-6xl px-6 mx-auto">
             <div className="flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-start mb-10">
-              <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold">{brand}</h2>
+              <div className="flex flex-col gap-1.5">
+                <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold">{brand}</h2>
+                {address && (
+                  <div className="flex items-center gap-1.5 text-sm opacity-75">
+                    <MapPin className="w-4 h-4 shrink-0 text-primary-cta" />
+                    <span>{address}</span>
+                  </div>
+                )}
+              </div>
 
               <div className="w-full md:w-fit flex flex-wrap gap-y-10 md:gap-12">
                 {columns.map((column) => (

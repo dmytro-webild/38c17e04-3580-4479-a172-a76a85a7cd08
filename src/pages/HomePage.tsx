@@ -285,19 +285,34 @@ export default function HomePage() {
           </div>
 
           <LogoGridSwap
-            names={[
-              "MedVance Tech",
-              "FinSecure",
-              "ScaleStack",
-              "Apex Capital",
-              "Logistics One",
-              "Nexus Cloud",
-              "Veloce Startups",
-              "DataPulse",
-              "CyberShield",
-              "Alpha SaaS",
-              "OmniTrade",
-              "Nordic ERP"
+            clients={[
+              {
+                name: "Asel Mobile",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161848-w07i0qd7.webp"
+              },
+              {
+                name: "Mabfem Engineering",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-ttsz614l.png"
+              },
+              {
+                name: "Webac",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-guc6mwbv.jpg"
+              },
+              {
+                name: "Colix",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-1kqy9xa2.jpg"
+              },
+              {
+                name: "Crystal Clear Tech",
+                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
+              },
+              { name: "MedVance Tech" },
+              { name: "FinSecure" },
+              { name: "ScaleStack" },
+              { name: "Apex Capital" },
+              { name: "Logistics One" },
+              { name: "Nexus Cloud" },
+              { name: "Veloce Startups" }
             ]}
           />
         </div>
@@ -435,6 +450,7 @@ export default function HomePage() {
           tag="Get Started"
           title="Ready to build your app or enterprise system?"
           description="Reach out to Moheb Awichewi and the Veloce Labs team to discuss your customized app, SaaS startup, or enterprise ERP/CRM/PLM requirements."
+          address="Centre Bourguiba, Sfax, Regus"
           inputPlaceholder="Enter your work email"
           buttonText="Get in Touch"
         />
