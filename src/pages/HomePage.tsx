@@ -9,6 +9,7 @@ import ProjectRowsPreview from "@/components/animation/ProjectRowsPreview";
 import LogoGridSwap from "@/components/animation/LogoGridSwap";
 import TestimonialsCards from "@/components/sections/testimonials/TestimonialsCards";
 import TrustBanner from "@/components/sections/trust/TrustBanner";
+import FaqSection from "@/components/sections/faq/FaqSection";
 import LightRaysCornerBackground from "@/components/backgrounds/LightRaysCornerBackground";
 import AppearOnScroll from "@/components/animation/AppearOnScroll";
 import GradientWordReveal from "@/components/animation/GradientWordReveal";
@@ -450,6 +451,11 @@ export default function HomePage() {
             }
           ]}
         />
+      </div>
+
+      {/* FAQ Section */}
+      <div id="faq" data-webild-section="FaqSection" data-webild-section-id="FaqSection-1" data-section="faq">
+        <FaqSection />
       </div>
 
       {/* Contact Section */}

@@ -33,6 +33,10 @@ export default function Layout() {
             {
               name: "Leadership",
               href: "#team"
+            },
+            {
+              name: "FAQ",
+              href: "#faq"
             }
           ]}
           ctaButton={{
@@ -101,6 +105,10 @@ export default function Layout() {
                 {
                   label: "Leadership",
                   href: "#team"
+                },
+                {
+                  label: "FAQ",
+                  href: "#faq"
                 },
                 {
                   label: "Contact",
