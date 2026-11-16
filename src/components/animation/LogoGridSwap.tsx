@@ -38,6 +38,14 @@ const shuffle = (values: number[]) => {
 
 const DEFAULT_CLIENTS: ClientItem[] = [
   {
+    name: "DataLine Services",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794866719552-zyimggke.jpg"
+  },
+  {
+    name: "Chamsana",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794866719553-tiocgpo0.jpg"
+  },
+  {
     name: "Asel Mobile",
     logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161848-w07i0qd7.webp"
   },
@@ -57,16 +65,14 @@ const DEFAULT_CLIENTS: ClientItem[] = [
     name: "Crystal Clear Tech",
     logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
   },
+  { name: "MA Tradition" },
   { name: "MedVance Tech" },
   { name: "FinSecure" },
   { name: "ScaleStack" },
-  { name: "Apex Capital" },
-  { name: "Logistics One" },
-  { name: "Nexus Cloud" },
   { name: "Veloce Startups" }
 ];
 
-const LogoGridSwap = ({ names, clients, cellClassName = "aspect-3/2 rounded" }: LogoGridSwapProps) => {
+const LogoGridSwap = ({ names, clients, cellClassName = "h-32 sm:h-36 md:h-40 rounded-xl" }: LogoGridSwapProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const hasEntered = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
@@ -153,7 +159,7 @@ const LogoGridSwap = ({ names, clients, cellClassName = "aspect-3/2 rounded" }: 
   }, [isInView, isReady, normalizedClients]);
 
   return (
-    <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
+    <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 w-full">
       {slots.map((slotState, slot) => {
         const client = normalizedClients[slotState.clientIndex];
         if (!client) return null;
@@ -164,7 +170,7 @@ const LogoGridSwap = ({ names, clients, cellClassName = "aspect-3/2 rounded" }: 
             initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 24 }}
             animate={isShown ? { opacity: 1, scale: 1, y: 0 } : undefined}
             transition={{ duration: 1, ease: INTRO_EASE, delay: INTRO_DELAYS[slot % INTRO_DELAYS.length] }}
-            className={`relative flex items-center justify-center ${cellClassName} card overflow-hidden perspective-[40em] ${
+            className={`relative flex items-center justify-center ${cellClassName} card border border-border/60 overflow-hidden perspective-[40em] ${
               slot >= MOBILE_SLOTS ? "max-lg:hidden" : ""
             }`}
           >
@@ -183,12 +189,13 @@ const LogoGridSwap = ({ names, clients, cellClassName = "aspect-3/2 rounded" }: 
                     exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.8, ease: EASE } }}
                     className="absolute inset-0 backface-hidden flex items-center justify-center p-3 select-none"
                   >
-                    <div className="bg-white/95 rounded-lg px-4 py-2.5 flex items-center justify-center shadow-inner max-w-[85%] max-h-[75%] transition-transform duration-300 hover:scale-105">
+                    <div className="bg-white rounded-xl p-3 md:p-4 flex items-center justify-center shadow-lg w-[90%] h-[84%] transition-transform duration-300 hover:scale-[1.03]">
                       <img
                         src={client.logo}
                         alt={`${client.name} logo`}
-                        className="max-h-10 md:max-h-12 w-auto object-contain"
+                        className="max-h-16 md:max-h-20 w-auto max-w-[92%] object-contain"
                         loading="eager"
+                        decoding="async"
                       />
                     </div>
                   </motion.div>
@@ -207,7 +214,7 @@ const LogoGridSwap = ({ names, clients, cellClassName = "aspect-3/2 rounded" }: 
                       }
                     }}
                     exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.8, ease: EASE } }}
-                    className="absolute backface-hidden text-xl md:text-2xl 2xl:text-3xl leading-tight font-semibold whitespace-nowrap text-foreground/85 px-3 text-center select-none"
+                    className="absolute backface-hidden text-lg md:text-xl 2xl:text-2xl font-bold leading-tight tracking-tight whitespace-nowrap text-foreground/90 px-3 text-center select-none"
                   >
                     {client.name}
                   </motion.span>

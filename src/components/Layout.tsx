@@ -37,7 +37,7 @@ export default function Layout() {
           ]}
           ctaButton={{
             text: "Get in Touch",
-            href: "#contact"
+            href: "https://wa.me/21650564964"
           }}
         />
       </header>
