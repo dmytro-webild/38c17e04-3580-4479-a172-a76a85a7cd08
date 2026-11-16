@@ -5,36 +5,40 @@ import FeaturesStatCards from "@/components/sections/features/FeaturesStatCards"
 import PricingLayeredEnterprise from "@/components/sections/pricing/PricingLayeredEnterprise";
 import TeamOverlayCards from "@/components/sections/team/TeamOverlayCards";
 import ContactCenter from "@/components/sections/contact/ContactCenter";
+import ProjectRowsPreview from "@/components/animation/ProjectRowsPreview";
+import LogoGridSwap from "@/components/animation/LogoGridSwap";
+import TestimonialsCards from "@/components/sections/testimonials/TestimonialsCards";
 import LightRaysCornerBackground from "@/components/backgrounds/LightRaysCornerBackground";
-import { Bot, Calendar, Clock, FileSpreadsheet, Layers, Mail, MessageSquare, User, Workflow, Zap } from "lucide-react";
+import AppearOnScroll from "@/components/animation/AppearOnScroll";
+import GradientWordReveal from "@/components/animation/GradientWordReveal";
+import { Code, Cpu, Database, Layers, Rocket, Server, Shield, ShieldCheck, Smartphone } from "lucide-react";
 
 export default function HomePage() {
   return (
     <>
-      <LightRaysCornerBackground
-        className="absolute -scale-x-100"
-      />
+      <LightRaysCornerBackground className="absolute -scale-x-100" />
 
+      {/* Hero Section */}
       <div id="hero" data-webild-section="HeroToolRing" data-webild-section-id="HeroToolRing-1" data-section="hero" className="relative isolate">
         <HeroToolRing
-          title="Hire AI agents,"
-          titleMuted="not more people."
-          description="We build custom agents that take over follow-ups, data entry and admin, so your team can focus on the work that grows the business."
+          title="Software Engineering"
+          titleMuted="for Visionaries & Startups."
+          description="Veloce Labs is a software engineering firm specializing in customized mobile & web apps, cybersecurity, CRM, PLM, and ERP systems. We launch our own startups and help ambitious founders build scalable SaaS platforms."
           detail={{
-            title: "Hours saved this week",
-            description: "2,480 across clients"
+            title: "Engineering Focus",
+            description: "Custom SaaS, Mobile Apps & Enterprise Systems"
           }}
           stat={{
-            value: 50,
-            label: "tools connected"
+            value: 100,
+            label: "Systems & Apps Engineered"
           }}
           primaryButton={{
-            text: "Book a Free Audit",
+            text: "Start Your Project",
             href: "#contact"
           }}
           secondaryButton={{
-            text: "Our Services",
-            href: "#services"
+            text: "Explore Projects",
+            href: "#projects"
           }}
           items={[
             {
@@ -68,30 +72,32 @@ export default function HomePage() {
         />
       </div>
 
+      {/* About Section */}
       <div id="about" data-webild-section="AboutTextWave" data-webild-section-id="AboutTextWave-1" data-section="about">
         <AboutTextWave
-          title="Most teams lose 20+ hours a week to copy-paste, follow-ups and admin. We map where the time goes, then build AI automations that give it back."
+          title="At Veloce Labs, we build high-performance software systems—from tailored ERP, CRM, and PLM architectures to robust cybersecurity platforms. We launch our own startups and partner with founders to create scalable SaaS products."
           primaryButton={{
-            text: "Book a Free Audit",
+            text: "Start Your Project",
             href: "#contact"
           }}
           secondaryButton={{
-            text: "See Results",
-            href: "#results"
+            text: "Our Services",
+            href: "#services"
           }}
         />
       </div>
 
+      {/* Services Section */}
       <div id="services" data-webild-section="FeaturesBento" data-webild-section-id="FeaturesBento-1" data-section="services">
         <FeaturesBento
           titleGradient
           buttonStagger
           cardAnimation="rotate-scale"
           textAnimation="slide-up"
-          tag="What We Automate"
-          title="Your workflows, on autopilot."
+          tag="Engineering Capabilities"
+          title="Custom apps, enterprise systems & SaaS."
           primaryButton={{
-            text: "Book a Free Audit",
+            text: "Get in Touch",
             href: "#contact"
           }}
           secondaryButton={{
@@ -101,198 +107,325 @@ export default function HomePage() {
           features={[
             {
               bentoComponent: "orbiting-icons",
-              centerIcon: Workflow,
+              centerIcon: Code,
               orbitIcons: [
-                Mail,
-                Calendar,
-                FileSpreadsheet,
-                MessageSquare
+                Smartphone,
+                Shield,
+                Database,
+                Server
               ],
-              title: "Connected Tools",
-              description: "Your CRM, inbox and calendar finally work as one system."
+              title: "Customized Apps & Web Apps",
+              description: "High-performance frontend and backend engineering tailored for mobile devices and cloud platforms."
             },
             {
               bentoComponent: "tilted-stack-cards",
               stackCards: [
                 {
-                  icon: Mail,
-                  title: "Lead follow-up",
-                  subtitle: "Sent in 2 minutes",
-                  detail: "Automated"
+                  icon: Shield,
+                  title: "Cyber Security",
+                  subtitle: "Zero-Trust Protocol",
+                  detail: "Secured"
                 },
                 {
-                  icon: FileSpreadsheet,
-                  title: "Invoice processing",
-                  subtitle: "340 this week",
-                  detail: "Done"
+                  icon: Database,
+                  title: "ERP, CRM & PLM",
+                  subtitle: "Custom Enterprise Stack",
+                  detail: "Integrated"
                 },
                 {
-                  icon: Calendar,
-                  title: "Meeting booking",
-                  subtitle: "28 booked",
-                  detail: "Live"
+                  icon: Layers,
+                  title: "SaaS & App Studio",
+                  subtitle: "Proprietary & Client SaaS",
+                  detail: "Active"
                 }
               ],
-              title: "Self-Running Workflows",
-              description: "Follow-ups, invoices and scheduling handled without anyone touching them."
+              title: "Enterprise Core & Cyber Security",
+              description: "Custom ERP, CRM, PLM systems and military-grade cybersecurity architectures for complex operations."
             },
             {
               bentoComponent: "chat-marquee",
-              aiIcon: Bot,
-              userIcon: User,
+              aiIcon: Cpu,
+              userIcon: Code,
               exchanges: [
                 {
-                  userMessage: "Qualify today's new leads",
-                  aiResponse: "Scored 42 leads and booked 6 calls."
+                  userMessage: "Architect custom ERP & CRM for multi-site operations",
+                  aiResponse: "Designed modular ERP backend with synchronized database and access roles."
                 },
                 {
-                  userMessage: "Summarize this week's support tickets",
-                  aiResponse: "Found 3 themes, report sent to Slack."
+                  userMessage: "Audit and fortify platform cybersecurity",
+                  aiResponse: "Zero-trust architecture and penetration testing complete."
                 },
                 {
-                  userMessage: "Update the CRM from yesterday's calls",
-                  aiResponse: "128 records updated."
+                  userMessage: "Build MVP for new client SaaS idea",
+                  aiResponse: "Scalable SaaS boilerplate deployed with subscription billing and cloud backend."
                 }
               ],
-              placeholder: "Ask your agent...",
-              title: "AI Agents on Your Team",
-              description: "Agents that read, decide and act inside your tools around the clock."
+              placeholder: "Ask about custom software architecture...",
+              title: "In-House Startups & Client SaaS",
+              description: "We develop our own tech startups while helping client founders turn software concepts into market-ready SaaS."
             }
           ]}
         />
       </div>
 
+      {/* Results / Impact Section */}
       <div id="results" data-webild-section="FeaturesStatCards" data-webild-section-id="FeaturesStatCards-1" data-section="results">
         <FeaturesStatCards
           titleGradient
           cardAnimation="rotate-scale"
           textAnimation="slide-up"
-          tag="Results"
-          title="Less busywork. More time to grow."
+          tag="Track Record"
+          title="Engineered for speed, security, and scale."
           features={[
             {
-              icon: Clock,
+              icon: Cpu,
               stat: {
-                value: 20,
-                suffix: "+"
+                value: 6,
+                suffix: " Core"
               },
-              title: "Hours saved every week"
+              title: "Specialties: Custom Apps, Web Apps, Cyber Security, CRM, PLM & ERP"
             },
             {
-              icon: Zap,
+              icon: ShieldCheck,
+              stat: {
+                value: 100,
+                suffix: "%"
+              },
+              title: "Tailored & Secure Enterprise Architecture"
+            },
+            {
+              icon: Rocket,
               stat: {
                 value: 24,
                 suffix: "/7"
               },
-              title: "Agents working around the clock"
-            },
-            {
-              icon: Layers,
-              stat: {
-                value: 50,
-                suffix: "+"
-              },
-              title: "Tools connected to your stack"
+              title: "In-House Startups & Client SaaS Operations"
             }
           ]}
         />
       </div>
 
+      {/* Projects Section */}
+      <div id="projects" data-webild-section="Projects" data-webild-section-id="Projects-1" data-section="projects" className="py-20">
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-col items-center gap-2 w-full max-w-6xl px-6 mx-auto">
+            <AppearOnScroll variant="fade">
+              <div className="px-3 py-1 mb-1 text-sm card rounded w-fit">
+                <p>Our Projects</p>
+              </div>
+            </AppearOnScroll>
+
+            <GradientWordReveal
+              text="Featured Software & System Launches"
+              variant="slide-up"
+              tag="h2"
+              className="md:max-w-8/10 text-3xl md:text-5xl 2xl:text-6xl leading-[1.15] font-semibold text-center text-balance"
+            />
+          </div>
+
+          <ProjectRowsPreview
+            headers={["Project Name", "Category", "Year", "Services"]}
+            items={[
+              {
+                title: "Veloce ERP & PLM Suite",
+                location: "Enterprise Core",
+                year: "2026",
+                services: "ERP, CRM & PLM",
+                imageSrc: "https://images.pexels.com/photos/2183773/pexels-photo-2183773.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              },
+              {
+                title: "Fortress Cyber Guard",
+                location: "Cyber Security",
+                year: "2025",
+                services: "Zero-Trust & Audit",
+                imageSrc: "https://images.pexels.com/photos/16323454/pexels-photo-16323454.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              },
+              {
+                title: "Apex Enterprise CRM",
+                location: "Custom Web App",
+                year: "2025",
+                services: "CRM & Cloud APIs",
+                imageSrc: "https://images.pexels.com/photos/3753759/pexels-photo-3753759.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              },
+              {
+                title: "ScaleStack SaaS Platform",
+                location: "Startup Studio",
+                year: "2024",
+                services: "SaaS Architecture",
+                imageSrc: "https://images.pexels.com/photos/34225012/pexels-photo-34225012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              },
+              {
+                title: "Pulse Health App",
+                location: "Customized App",
+                year: "2024",
+                services: "iOS & Android Build",
+                imageSrc: "https://images.pexels.com/photos/29581806/pexels-photo-29581806.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              }
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* Clients Section */}
+      <div id="clients" data-webild-section="Clients" data-webild-section-id="Clients-1" data-section="clients" className="py-20">
+        <div className="flex flex-col gap-10 max-w-6xl mx-auto px-6">
+          <div className="flex flex-col items-center gap-2 w-full text-center">
+            <AppearOnScroll variant="fade">
+              <div className="px-3 py-1 mb-1 text-sm card rounded w-fit mx-auto">
+                <p>Our Clients</p>
+              </div>
+            </AppearOnScroll>
+
+            <GradientWordReveal
+              text="Trusted by Industry Leaders & Fast-Growing Startups"
+              variant="slide-up"
+              tag="h2"
+              className="md:max-w-8/10 text-3xl md:text-5xl 2xl:text-6xl leading-[1.15] font-semibold text-center text-balance"
+            />
+          </div>
+
+          <LogoGridSwap
+            names={[
+              "MedVance Tech",
+              "FinSecure",
+              "ScaleStack",
+              "Apex Capital",
+              "Logistics One",
+              "Nexus Cloud",
+              "Veloce Startups",
+              "DataPulse",
+              "CyberShield",
+              "Alpha SaaS",
+              "OmniTrade",
+              "Nordic ERP"
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* Testimonials Section */}
+      <div id="testimonials" data-webild-section="TestimonialsCards" data-webild-section-id="TestimonialsCards-1" data-section="testimonials">
+        <TestimonialsCards
+          titleGradient
+          cardAnimation="rotate-scale"
+          textAnimation="slide-up"
+          tag="Client Testimonials"
+          title="What our partners say about Veloce Labs."
+          description="Direct feedback from enterprise executives and SaaS founders who built their applications and core platforms with us."
+          testimonials={[
+            {
+              quote: "Veloce Labs delivered a custom ERP and CRM system that transformed our multi-site operations. Their software engineering speed and attention to security are outstanding.",
+              author: "Marcus Vance",
+              role: "Chief Operating Officer",
+              company: "MedVance Tech"
+            },
+            {
+              quote: "Moheb Awichewi and the Veloce Labs team helped us build and launch our SaaS platform from scratch. They understand both tech architecture and startup strategy.",
+              author: "Sarah Jenkins",
+              role: "Co-Founder & CEO",
+              company: "ScaleStack"
+            },
+            {
+              quote: "Their cybersecurity audit and custom web application development gave our financial software platform military-grade security and flawless scale.",
+              author: "David Alvi",
+              role: "Head of Infrastructure",
+              company: "FinSecure Global"
+            }
+          ]}
+        />
+      </div>
+
+      {/* Pricing Section */}
       <div id="pricing" data-webild-section="PricingLayeredEnterprise" data-webild-section-id="PricingLayeredEnterprise-1" data-section="pricing">
         <PricingLayeredEnterprise
           titleGradient
           buttonStagger
           cardAnimation="rotate-scale"
           textAnimation="slide-up"
-          tag="Pricing"
-          title="Clear pricing. Results you can measure."
+          tag="Pricing Packages"
+          title="Transparent engineering plans for startups & enterprises."
           plans={[
             {
-              tag: "Roadmap",
-              price: "$1,500",
-              description: "A clear plan for what to automate first.",
+              tag: "Starter MVP",
+              price: "1 000 TND",
+              description: "Ideal for early-stage founders and quick app validation.",
               primaryButton: {
                 text: "Get Started",
                 href: "#contact"
               },
               features: [
-                "Workflow and tool audit",
-                "Time and cost savings estimate",
-                "Prioritized automation plan",
-                "Delivered within one week"
+                "Custom web or mobile app MVP build",
+                "Core frontend & database architecture",
+                "API setup & user authentication",
+                "Rapid delivery in 2-3 weeks",
+                "14 days post-launch support"
               ]
             },
             {
-              tag: "Build",
-              price: "$6,000",
-              description: "Your top workflows, built and running.",
+              tag: "Pro SaaS & App",
+              price: "Customized",
+              description: "Full-scale custom web/mobile apps & SaaS platforms.",
               primaryButton: {
                 text: "Get Started",
                 href: "#contact"
               },
               features: [
-                "Everything in Roadmap",
-                "Up to 3 automations or agents",
-                "Connected to your existing tools",
-                "30 days of support"
+                "Tailored full-stack SaaS or web/mobile app",
+                "Custom API integrations & microservices",
+                "Payment, subscription & analytics stack",
+                "Scalable cloud architecture & DevOps",
+                "30 days dedicated engineering support"
               ]
             },
             {
-              tag: "Growth",
-              price: "$3,000/mo",
-              description: "Automation that grows with you.",
+              tag: "Enterprise System",
+              price: "Customized",
+              description: "Custom ERP, CRM, PLM & Cyber Security ecosystems.",
               primaryButton: {
                 text: "Get Started",
                 href: "#contact"
               },
               features: [
-                "Everything in Build",
-                "New automations every month",
-                "Ongoing monitoring and tuning",
-                "Priority support"
+                "Customized ERP, CRM & PLM development",
+                "Zero-trust Cybersecurity implementation",
+                "Legacy data migration & enterprise API hub",
+                "Dedicated engineering lead & SLA",
+                "Continuous updates, monitoring & security"
               ]
             }
           ]}
           enterprise={{
-            tag: "Custom pricing",
-            title: "Enterprise",
-            description: "Unlimited automations, SSO, security review and a dedicated engineer, scoped to your team.",
+            tag: "Custom Partnership",
+            title: "Co-Building & Startup Studio",
+            description: "Looking to co-build a venture or launch a breakthrough SaaS with Veloce Labs? We partner with founders and enterprise innovators.",
             primaryButton: {
-              text: "Talk to Sales",
+              text: "Talk to Founder",
               href: "#contact"
             }
           }}
         />
       </div>
 
+      {/* Team / Leadership Section */}
       <div id="team" data-webild-section="TeamOverlayCards" data-webild-section-id="TeamOverlayCards-1" data-section="team">
         <TeamOverlayCards
           titleGradient
           buttonStagger
           cardAnimation="rotate-scale"
           textAnimation="slide-up"
-          tag="Team"
-          title="Built by engineers who automate for a living."
+          tag="Leadership"
+          title="Led by software engineering visionaries."
           members={[
             {
-              name: "Brody Glanville",
-              role: "CEO",
-              imageSrc: "https://storage.googleapis.com/webild/default/templates/ai-consulting/ceo-1600.webp"
-            },
-            {
-              name: "Bennett Spooner",
-              role: "COO",
-              imageSrc: "https://storage.googleapis.com/webild/default/templates/ai-consulting/coo-1600.webp"
-            },
-            {
-              name: "Jesse Rurka",
-              role: "CTO",
-              imageSrc: "https://storage.googleapis.com/webild/default/templates/ai-consulting/cto-1600.webp"
+              name: "Moheb Awichewi",
+              role: "CEO & Founder",
+              description: "Founder and Lead Architect at Veloce Labs. Moheb leads software engineering across customized web and mobile applications, startup incubation, cybersecurity frameworks, and enterprise ERP, CRM, and PLM architectures."
             }
           ]}
         />
       </div>
 
+      {/* Contact Section */}
       <div id="contact" data-webild-section="ContactCenter" data-webild-section-id="ContactCenter-1" data-section="contact">
         <ContactCenter
           titleGradient
@@ -300,10 +433,10 @@ export default function HomePage() {
           wideContent
           textAnimation="slide-up"
           tag="Get Started"
-          title="Ready to get your hours back?"
-          description="Book a free 30-minute automation audit and see what we would automate first."
-          inputPlaceholder="Enter your email"
-          buttonText="Book a Free Audit"
+          title="Ready to build your app or enterprise system?"
+          description="Reach out to Moheb Awichewi and the Veloce Labs team to discuss your customized app, SaaS startup, or enterprise ERP/CRM/PLM requirements."
+          inputPlaceholder="Enter your work email"
+          buttonText="Get in Touch"
         />
       </div>
     </>
