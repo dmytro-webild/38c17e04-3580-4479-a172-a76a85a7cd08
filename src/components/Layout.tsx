@@ -47,6 +47,7 @@ export default function Layout() {
       <footer data-webild-section="Footer">
         <FooterSimpleReveal
           brand="VELOCE LABS"
+          address="Centre Bourguiba, Sfax, Regus"
           columns={[
             {
               title: "Solutions",
@@ -103,6 +104,15 @@ export default function Layout() {
                 },
                 {
                   label: "Contact",
+                  href: "#contact"
+                }
+              ]
+            },
+            {
+              title: "Location",
+              items: [
+                {
+                  label: "Centre Bourguiba, Sfax, Regus",
                   href: "#contact"
                 }
               ]

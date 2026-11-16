@@ -1,18 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { motion, AnimatePresence, useInView, useReducedMotion } from "motion/react";
 
 const SLOTS = 8;
 const MOBILE_SLOTS = 6;
-const LOOP_DELAY = 1500;
+const LOOP_DELAY = 1800;
 const EASE = [0.87, 0, 0.13, 1] as const;
 const INTRO_EASE = [0.16, 1, 0.3, 1] as const;
 const INTRO_DELAYS = [0, 5, 2, 7, 4, 1, 6, 3].map((step) => step * 0.08);
 const INTRO_DURATION = 1800;
 
+interface ClientItem {
+  name: string;
+  logo?: string;
+}
+
+interface SlotState {
+  clientIndex: number;
+  mode: "text" | "logo";
+}
+
 interface LogoGridSwapProps {
   names?: string[];
+  clients?: (string | ClientItem)[];
   cellClassName?: string;
 }
 
@@ -25,27 +36,69 @@ const shuffle = (values: number[]) => {
   return result;
 };
 
-const DEFAULT_NAMES = ["Northwind", "Lumen", "Atlas", "Verde", "Orbit", "Haven", "Pioneer", "Summit", "Harbor", "Ember", "Nova", "Cedar"];
+const DEFAULT_CLIENTS: ClientItem[] = [
+  {
+    name: "Asel Mobile",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161848-w07i0qd7.webp"
+  },
+  {
+    name: "Mabfem Engineering",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-ttsz614l.png"
+  },
+  {
+    name: "Webac",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-guc6mwbv.jpg"
+  },
+  {
+    name: "Colix",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-1kqy9xa2.jpg"
+  },
+  {
+    name: "Crystal Clear Tech",
+    logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
+  },
+  { name: "MedVance Tech" },
+  { name: "FinSecure" },
+  { name: "ScaleStack" },
+  { name: "Apex Capital" },
+  { name: "Logistics One" },
+  { name: "Nexus Cloud" },
+  { name: "Veloce Startups" }
+];
 
-const LogoGridSwap = ({ names = DEFAULT_NAMES, cellClassName = "aspect-3/2 rounded" }:LogoGridSwapProps) => {
+const LogoGridSwap = ({ names, clients, cellClassName = "aspect-3/2 rounded" }: LogoGridSwapProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const hasEntered = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
   const reduceMotion = useReducedMotion();
   const isShown = hasEntered || !!reduceMotion;
   const [isReady, setIsReady] = useState(false);
-  const [slots, setSlots] = useState(() => names.slice(0, SLOTS).map((_, index) => index));
+
+  const normalizedClients: ClientItem[] = useMemo(
+    () =>
+      (clients || names?.map((n) => ({ name: n })) || DEFAULT_CLIENTS).map((item) =>
+        typeof item === "string" ? { name: item } : item
+      ),
+    [clients, names]
+  );
+
+  const [slots, setSlots] = useState<SlotState[]>(() =>
+    normalizedClients.slice(0, SLOTS).map((_, index) => ({ clientIndex: index, mode: "text" }))
+  );
   const slotsRef = useRef(slots);
   const poolRef = useRef<number[]>([]);
   const patternRef = useRef({ order: [] as number[], index: 0 });
 
   useEffect(() => {
-    const initial = names.slice(0, SLOTS).map((_, index) => index);
+    const initial: SlotState[] = normalizedClients.slice(0, SLOTS).map((_, index) => ({
+      clientIndex: index,
+      mode: "text"
+    }));
     slotsRef.current = initial;
     setSlots(initial);
-    poolRef.current = shuffle(names.map((_, index) => index).slice(SLOTS));
+    poolRef.current = shuffle(normalizedClients.map((_, index) => index).slice(SLOTS));
     patternRef.current = { order: [], index: 0 };
-  }, [names]);
+  }, [normalizedClients]);
 
   useEffect(() => {
     if (!isShown) return;
@@ -57,55 +110,113 @@ const LogoGridSwap = ({ names = DEFAULT_NAMES, cellClassName = "aspect-3/2 round
     if (!isInView || !isReady) return;
 
     const interval = setInterval(() => {
-      if (document.hidden || !poolRef.current.length) return;
+      if (document.hidden) return;
       const visible = Math.min(slotsRef.current.length, window.matchMedia("(max-width: 991px)").matches ? MOBILE_SLOTS : SLOTS);
       const pattern = patternRef.current;
       if (pattern.order.length !== visible) {
         pattern.order = shuffle(Array.from({ length: visible }, (_, index) => index));
         pattern.index = 0;
       }
-      const slot = pattern.order[pattern.index % visible];
+      const slotIndex = pattern.order[pattern.index % visible];
       pattern.index++;
-      const next = slotsRef.current.slice();
-      poolRef.current.push(next[slot]);
-      next[slot] = poolRef.current.shift()!;
-      slotsRef.current = next;
-      setSlots(next);
+
+      const nextSlots = slotsRef.current.slice();
+      const currentSlot = nextSlots[slotIndex];
+      const currentClient = normalizedClients[currentSlot.clientIndex];
+
+      if (currentClient?.logo && currentSlot.mode === "text") {
+        nextSlots[slotIndex] = {
+          clientIndex: currentSlot.clientIndex,
+          mode: "logo"
+        };
+      } else {
+        if (poolRef.current.length > 0) {
+          poolRef.current.push(currentSlot.clientIndex);
+          const nextClientIndex = poolRef.current.shift()!;
+          nextSlots[slotIndex] = {
+            clientIndex: nextClientIndex,
+            mode: "text"
+          };
+        } else {
+          nextSlots[slotIndex] = {
+            clientIndex: currentSlot.clientIndex,
+            mode: currentSlot.mode === "text" && currentClient?.logo ? "logo" : "text"
+          };
+        }
+      }
+
+      slotsRef.current = nextSlots;
+      setSlots(nextSlots);
     }, LOOP_DELAY);
 
     return () => clearInterval(interval);
-  }, [isInView, isReady]);
+  }, [isInView, isReady, normalizedClients]);
 
   return (
     <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 w-full">
-      {slots.map((nameIndex, slot) => (
-        <motion.div
-          key={slot}
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 24 }}
-          animate={isShown ? { opacity: 1, scale: 1, y: 0 } : undefined}
-          transition={{ duration: 1, ease: INTRO_EASE, delay: INTRO_DELAYS[slot % INTRO_DELAYS.length] }}
-          className={`relative flex items-center justify-center ${cellClassName} card overflow-hidden perspective-[40em] ${slot >= MOBILE_SLOTS ? "max-lg:hidden" : ""}`}
-        >
-          <AnimatePresence initial={false}>
-            {isShown && (
-              <motion.span
-                key={nameIndex}
-                initial={{ y: "50%", rotateX: -90, opacity: 0 }}
-                animate={{
-                  y: "0%",
-                  rotateX: 0,
-                  opacity: 1,
-                  transition: { duration: 0.9, ease: EASE, delay: isReady ? 0.1 : INTRO_DELAYS[slot % INTRO_DELAYS.length] + 0.3 },
-                }}
-                exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.9, ease: EASE } }}
-                className="absolute backface-hidden text-xl md:text-2xl 2xl:text-3xl leading-tight font-semibold whitespace-nowrap text-foreground/75"
-              >
-                {names[nameIndex]}
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </motion.div>
-      ))}
+      {slots.map((slotState, slot) => {
+        const client = normalizedClients[slotState.clientIndex];
+        if (!client) return null;
+
+        return (
+          <motion.div
+            key={slot}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 24 }}
+            animate={isShown ? { opacity: 1, scale: 1, y: 0 } : undefined}
+            transition={{ duration: 1, ease: INTRO_EASE, delay: INTRO_DELAYS[slot % INTRO_DELAYS.length] }}
+            className={`relative flex items-center justify-center ${cellClassName} card overflow-hidden perspective-[40em] ${
+              slot >= MOBILE_SLOTS ? "max-lg:hidden" : ""
+            }`}
+          >
+            <AnimatePresence initial={false} mode="wait">
+              {isShown && (
+                slotState.mode === "logo" && client.logo ? (
+                  <motion.div
+                    key={`${slotState.clientIndex}-logo`}
+                    initial={{ y: "50%", rotateX: -90, opacity: 0 }}
+                    animate={{
+                      y: "0%",
+                      rotateX: 0,
+                      opacity: 1,
+                      transition: { duration: 0.8, ease: EASE }
+                    }}
+                    exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.8, ease: EASE } }}
+                    className="absolute inset-0 backface-hidden flex items-center justify-center p-3 select-none"
+                  >
+                    <div className="bg-white/95 rounded-lg px-4 py-2.5 flex items-center justify-center shadow-inner max-w-[85%] max-h-[75%] transition-transform duration-300 hover:scale-105">
+                      <img
+                        src={client.logo}
+                        alt={`${client.name} logo`}
+                        className="max-h-10 md:max-h-12 w-auto object-contain"
+                        loading="eager"
+                      />
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.span
+                    key={`${slotState.clientIndex}-text`}
+                    initial={{ y: "50%", rotateX: -90, opacity: 0 }}
+                    animate={{
+                      y: "0%",
+                      rotateX: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: 0.8,
+                        ease: EASE,
+                        delay: isReady ? 0.05 : INTRO_DELAYS[slot % INTRO_DELAYS.length] + 0.3
+                      }
+                    }}
+                    exit={{ y: "-50%", rotateX: 90, opacity: 0, transition: { duration: 0.8, ease: EASE } }}
+                    className="absolute backface-hidden text-xl md:text-2xl 2xl:text-3xl leading-tight font-semibold whitespace-nowrap text-foreground/85 px-3 text-center select-none"
+                  >
+                    {client.name}
+                  </motion.span>
+                )
+              )}
+            </AnimatePresence>
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
