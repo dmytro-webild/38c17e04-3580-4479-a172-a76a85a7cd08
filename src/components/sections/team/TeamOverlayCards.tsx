@@ -96,14 +96,14 @@ const TeamOverlayCards = ({
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col justify-between p-8 md:p-10 card rounded h-full gap-6 text-center items-center">
+              <div className="flex flex-col justify-between p-8 md:p-10 card rounded-2xl h-full gap-6 text-center items-center border border-[#7CC115]/40 bg-[#101210] shadow-2xl">
                 <div className="flex flex-col items-center gap-4">
-                  <div className="px-4 py-1.5 text-xs md:text-sm font-semibold bg-primary text-primary-foreground rounded-full uppercase tracking-wider">
+                  <div className="px-4 py-1.5 text-xs md:text-sm font-mono font-bold bg-[#1B3D04] text-[#B4F82A] border border-[#7CC115]/40 rounded-full uppercase tracking-wider">
                     {member.role}
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tight">{member.name}</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-[#FFFFFF]">{member.name}</h3>
                   {member.description && (
-                    <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-xl text-balance">
+                    <p className="text-base md:text-lg leading-relaxed text-[#a1a1aa] max-w-xl text-balance">
                       {member.description}
                     </p>
                   )}

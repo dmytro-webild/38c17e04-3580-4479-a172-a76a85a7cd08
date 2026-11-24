@@ -82,11 +82,11 @@ const NavbarCentered = ({ logo = "Studio", navItems = DEFAULT_NAV_ITEMS, ctaButt
         data-section="navbar"
         className={cn(
           "fixed z-1000 top-0 left-0 w-full transition-all duration-500 ease-in-out",
-          isScrolled ? "h-15 bg-background/80 backdrop-blur-sm" : "h-20 bg-background/0 backdrop-blur-0"
+          isScrolled ? "h-15 bg-[#050505]/90 backdrop-blur-md border-b border-[#1B3D04]" : "h-20 bg-transparent"
         )}
       >
         <div className="relative mx-auto flex items-center justify-between h-full w-full max-w-6xl px-6">
-          <a href="/" className="text-xl font-medium text-foreground">{logo}</a>
+          <a href="/" className="text-xl font-bold tracking-wider text-[#FFFFFF] font-sans">{logo}</a>
 
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-6">
             {navItems.map((item) => (
@@ -94,7 +94,7 @@ const NavbarCentered = ({ logo = "Studio", navItems = DEFAULT_NAV_ITEMS, ctaButt
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-base text-foreground hover:opacity-70 transition-opacity"
+                className="text-base text-[#FFFFFF] hover:text-[#B4F82A] transition-colors"
               >
                 {item.name}
               </a>
@@ -102,15 +102,15 @@ const NavbarCentered = ({ logo = "Studio", navItems = DEFAULT_NAV_ITEMS, ctaButt
           </div>
 
           <div className="flex items-center gap-2 xl:gap-3 2xl:gap-4">
-            <a href={ctaButton.href} className="flex items-center justify-center h-10 px-6 text-sm rounded-lg cursor-pointer btn-primary bg-primary text-primary-foreground">{buttonStagger ? <StaggerText text={ctaButton.text} /> : ctaButton.text}</a>
+            <a href={ctaButton.href} className="flex items-center justify-center h-10 px-6 text-sm font-semibold rounded-lg cursor-pointer btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] shadow-[0_0_15px_rgba(180,248,42,0.25)]">{buttonStagger ? <StaggerText text={ctaButton.text} /> : ctaButton.text}</a>
 
             <div
-              className="flex md:hidden items-center justify-center shrink-0 size-10 rounded-lg cursor-pointer bg-primary text-primary-foreground"
+              className="flex md:hidden items-center justify-center shrink-0 size-10 rounded-lg cursor-pointer bg-[#B4F82A] text-[#050505]"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               <Plus
-                className={cn("w-1/2 h-1/2 text-primary-foreground transition-transform duration-300", menuOpen ? "rotate-45" : "rotate-0")}
-                strokeWidth={1.5}
+                className={cn("w-1/2 h-1/2 text-[#050505] transition-transform duration-300", menuOpen ? "rotate-45" : "rotate-0")}
+                strokeWidth={2}
               />
             </div>
           </div>
@@ -125,15 +125,15 @@ const NavbarCentered = ({ logo = "Studio", navItems = DEFAULT_NAV_ITEMS, ctaButt
             animate={{ y: 0 }}
             exit={{ y: "-135%" }}
             transition={{ type: "spring", damping: 26, stiffness: 170 }}
-            className="md:hidden fixed z-1000 top-3 left-3 right-3 p-6 rounded-xl bg-card text-card-foreground border"
+            className="md:hidden fixed z-1000 top-3 left-3 right-3 p-6 rounded-xl bg-[#101210] text-[#FFFFFF] border border-[#7CC115]/40 shadow-2xl"
           >
             <div className="flex items-center justify-between mb-6">
-              <p className="text-xl text-foreground">Menu</p>
+              <p className="text-xl font-bold text-[#FFFFFF]">{logo}</p>
               <div
-                className="flex items-center justify-center shrink-0 size-9 rounded-lg cursor-pointer bg-primary text-primary-foreground"
+                className="flex items-center justify-center shrink-0 size-9 rounded-lg cursor-pointer bg-[#B4F82A] text-[#050505]"
                 onClick={() => setMenuOpen(false)}
               >
-                <Plus className="w-1/2 h-1/2 text-primary-foreground rotate-45" strokeWidth={1.5} />
+                <Plus className="w-1/2 h-1/2 text-[#050505] rotate-45" strokeWidth={2} />
               </div>
             </div>
 
@@ -143,20 +143,20 @@ const NavbarCentered = ({ logo = "Studio", navItems = DEFAULT_NAV_ITEMS, ctaButt
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href, () => setMenuOpen(false))}
-                    className="flex items-center justify-between py-2 text-base font-medium text-foreground"
+                    className="flex items-center justify-between py-2 text-base font-medium text-[#FFFFFF] hover:text-[#B4F82A] transition-colors"
                   >
                     {item.name}
-                    <ArrowRight className="size-4 text-foreground" strokeWidth={1.5} />
+                    <ArrowRight className="size-4 text-[#B4F82A]" strokeWidth={1.5} />
                   </a>
                   {index < navItems.length - 1 && (
-                    <div className="h-px bg-linear-to-r from-transparent via-foreground/20 to-transparent" />
+                    <div className="h-px bg-[#1B3D04]" />
                   )}
                 </div>
               ))}
             </div>
 
             <div className="mt-6">
-              <a href={ctaButton.href} className="flex items-center justify-center h-10 px-6 text-sm rounded-lg cursor-pointer btn-primary bg-primary text-primary-foreground w-full">{buttonStagger ? <StaggerText text={ctaButton.text} /> : ctaButton.text}</a>
+              <a href={ctaButton.href} className="flex items-center justify-center h-10 px-6 text-sm font-semibold rounded-lg cursor-pointer btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] w-full">{buttonStagger ? <StaggerText text={ctaButton.text} /> : ctaButton.text}</a>
             </div>
           </motion.div>
         )}
