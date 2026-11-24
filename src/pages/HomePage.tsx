@@ -6,7 +6,7 @@ import PricingLayeredEnterprise from "@/components/sections/pricing/PricingLayer
 import TeamOverlayCards from "@/components/sections/team/TeamOverlayCards";
 import ContactCenter from "@/components/sections/contact/ContactCenter";
 import ProjectRowsPreview from "@/components/animation/ProjectRowsPreview";
-import LogoGridSwap from "@/components/animation/LogoGridSwap";
+import ClientCinematicSlider from "@/components/animation/ClientCinematicSlider";
 import TestimonialsCards from "@/components/sections/testimonials/TestimonialsCards";
 import FaqSection from "@/components/sections/faq/FaqSection";
 import LightRaysCornerBackground from "@/components/backgrounds/LightRaysCornerBackground";
@@ -268,64 +268,8 @@ export default function HomePage() {
       </div>
 
       {/* Clients Section */}
-      <div id="clients" data-webild-section="Clients" data-webild-section-id="Clients-1" data-section="clients" className="py-20">
-        <div className="flex flex-col gap-10 max-w-6xl mx-auto px-6">
-          <div className="flex flex-col items-center gap-2 w-full text-center">
-            <AppearOnScroll variant="fade">
-              <div className="px-3 py-1 mb-1 text-sm card rounded w-fit mx-auto">
-                <p>Our Clients</p>
-              </div>
-            </AppearOnScroll>
-
-            <GradientWordReveal
-              text="Trusted by Industry Leaders & Fast-Growing Startups"
-              variant="slide-up"
-              tag="h2"
-              className="md:max-w-8/10 text-3xl md:text-5xl 2xl:text-6xl leading-[1.15] font-semibold text-center text-balance"
-            />
-          </div>
-
-          <LogoGridSwap
-            clients={[
-              {
-                name: "DataLine Services",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794866719552-zyimggke.jpg"
-              },
-              {
-                name: "Chamsana",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794866719553-tiocgpo0.jpg"
-              },
-              {
-                name: "Asel Mobile",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843807-s1vuun7j.webp"
-              },
-              {
-                name: "Mabfem Engineering",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843806-a9big4co.png"
-              },
-              {
-                name: "Webac",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843808-hn7i92db.png"
-              },
-              {
-                name: "Colix",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161850-1kqy9xa2.jpg"
-              },
-              {
-                name: "MA Tradition",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794868843807-0r036fna.jpg"
-              },
-              {
-                name: "Crystal Clear Tech",
-                logo: "https://storage.googleapis.com/webild/users/user_3MADSCziAlAb5QOvY6wGFqwkeep/uploaded-1794862161851-38yz2c2x.jpg"
-              },
-              { name: "MedVance Tech" },
-              { name: "FinSecure" },
-              { name: "ScaleStack" },
-              { name: "Veloce Startups" }
-            ]}
-          />
-        </div>
+      <div id="clients" data-webild-section="Clients" data-webild-section-id="Clients-1" data-section="clients">
+        <ClientCinematicSlider />
       </div>
 
       {/* Testimonials Section */}

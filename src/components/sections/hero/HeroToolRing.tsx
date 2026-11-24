@@ -208,7 +208,7 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
   }, [isRevealed, slotX, slotY]);
 
   const ring = (
-    <div className="relative aspect-square h-[min(72vw,calc(100svh-18rem))] md:h-[min(30vw,calc(100svh-22rem))] transform-3d">
+    <div className="relative aspect-square w-full max-w-[340px] sm:max-w-[400px] md:max-w-[440px] transform-3d">
       <motion.div style={still ? undefined : { rotateX: tiltX, rotateY: tiltY }} className="absolute inset-0 transform-3d">
         <div className="absolute inset-0 transform-3d">
           <motion.div style={{ rotate: angle }} className="absolute inset-0 transform-3d">
@@ -229,17 +229,26 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
           </motion.div>
         </div>
 
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
-          <NumberFlow value={count} format={{ minimumIntegerDigits: 2 }} className="text-5xl md:text-7xl font-medium leading-none tracking-tight tabular-nums" />
-          <motion.p
-            initial={{ opacity: 0, y: 6 }}
-            animate={isRevealed ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-            className="flex items-center gap-2 -mt-2 md:-mt-3 text-xs md:text-sm whitespace-nowrap"
-          >
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-primary" />
-            {stat.label}
-          </motion.p>
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
+          <div className="flex flex-col items-center justify-center p-5 md:p-7 rounded-2xl bg-[#101210]/95 backdrop-blur-lg border border-[#7CC115]/40 shadow-2xl text-center min-w-[190px] md:min-w-[220px]">
+            <div className="flex items-baseline justify-center gap-0.5">
+              <NumberFlow
+                value={count}
+                format={{ minimumIntegerDigits: 2 }}
+                className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight tabular-nums text-[#B4F82A]"
+              />
+              <span className="text-3xl md:text-5xl font-extrabold text-[#B4F82A]">+</span>
+            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 6 }}
+              animate={isRevealed ? { opacity: 1, y: 0 } : undefined}
+              transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+              className="flex items-center justify-center gap-2 mt-2 text-xs md:text-sm font-semibold text-[#FFFFFF] whitespace-nowrap"
+            >
+              <span aria-hidden="true" className="size-2 rounded-full bg-[#B4F82A] animate-pulse" />
+              {stat.label}
+            </motion.p>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -260,9 +269,9 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
 
   const buttons = (
     <>
-      <a href={primaryButton.href} className="flex items-center justify-center h-10 px-6 text-sm rounded-lg cursor-pointer btn-primary bg-primary text-primary-foreground"><StaggerText text={primaryButton.text} /></a>
+      <a href={primaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-semibold rounded-xl cursor-pointer btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] shadow-[0_0_20px_rgba(180,248,42,0.25)]"><StaggerText text={primaryButton.text} /></a>
       {secondaryButton && (
-        <a href={secondaryButton.href} className="flex items-center justify-center h-10 px-6 text-sm rounded-lg cursor-pointer btn-secondary bg-secondary text-secondary-foreground"><StaggerText text={secondaryButton.text} /></a>
+        <a href={secondaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-medium rounded-xl cursor-pointer btn-secondary bg-[#101210] text-[#FFFFFF] border border-[#7CC115] hover:bg-[#1B3D04]"><StaggerText text={secondaryButton.text} /></a>
       )}
     </>
   );
@@ -274,22 +283,23 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
       data-revealed={isRevealed}
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
-      className="relative flex items-center min-h-svh pt-25 pb-20 md:py-0 overflow-hidden"
+      className="relative flex items-center min-h-svh pt-25 pb-20 md:py-0 overflow-hidden bg-[#050505]"
     >
       <motion.div
         aria-hidden="true"
         style={{ scaleY: barScale }}
         animate={{ opacity: isRevealed ? 0 : 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="absolute inset-y-0 left-0 w-1 origin-bottom bg-foreground"
+        className="absolute inset-y-0 left-0 w-1 origin-bottom bg-[#B4F82A]"
       />
 
-      <div className="flex flex-col md:flex-row items-center gap-6 md:gap-20 w-full max-w-6xl px-6 mx-auto">
-        <div className="relative z-30 flex flex-col items-center md:items-start gap-3 md:gap-5 w-full md:w-1/2 text-center md:text-left">
-          <h1 aria-label={`${title} ${titleMuted}`} className="text-4xl md:text-6xl 2xl:text-7xl font-medium leading-[1.05] tracking-tight md:whitespace-nowrap">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 w-full max-w-7xl px-6 mx-auto min-h-[calc(100vh-6rem)]">
+        {/* Dedicated Left Container with z-30, max-w-xl, and Obsidian backdrop fade */}
+        <div className="relative z-30 flex flex-col items-center md:items-start gap-4 md:gap-6 w-full lg:w-1/2 max-w-xl p-6 md:p-8 rounded-3xl bg-gradient-to-r from-[#050505] via-[#050505]/95 to-[#050505]/40 backdrop-blur-md border border-[#1B3D04]/30 shadow-2xl text-center md:text-left">
+          <h1 aria-label={`${title} ${titleMuted}`} className="text-4xl md:text-6xl 2xl:text-7xl font-medium leading-[1.05] tracking-tight text-[#FFFFFF]">
             <span aria-hidden="true">
               {line(title, 0)}
-              {line(titleMuted, 1, "opacity-45")}
+              {line(titleMuted, 1, "text-[#B4F82A]")}
             </span>
           </h1>
           <motion.div
@@ -298,19 +308,23 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
             transition={{ duration: 1, delay: 0.65, ease: EASE }}
             className="flex flex-col items-center md:items-start gap-4 md:gap-6"
           >
-            {description && <p className="text-base md:text-lg 2xl:text-xl leading-snug text-balance">{description}</p>}
+            {description && <p className="text-base md:text-lg 2xl:text-xl leading-snug text-balance text-[#a1a1aa]">{description}</p>}
             <div className="flex flex-wrap justify-center md:justify-start gap-3 md:mt-1">{buttons}</div>
             {detail && (
-              <p className="flex items-center gap-2 md:mt-1 text-sm">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-primary animate-pulse" />
+              <p className="flex items-center gap-2 md:mt-1 text-xs md:text-sm text-[#7CC115] font-mono">
+                <span aria-hidden="true" className="size-2 rounded-full bg-[#B4F82A] animate-pulse" />
                 {detail.title}: {detail.description}
               </p>
             )}
           </motion.div>
         </div>
-        <motion.div ref={slotRef} style={{ x: slotX, y: slotY }} className="relative z-40 order-first md:order-none flex items-center justify-center w-full md:w-1/2 aspect-square md:aspect-auto md:h-svh perspective-[1400px]">
-          {ring}
-        </motion.div>
+
+        {/* Bounded Right Orbital Stage */}
+        <div className="relative z-20 order-first lg:order-none flex items-center justify-center w-full lg:w-1/2 overflow-hidden rounded-3xl p-4 md:p-8 min-h-[380px] md:min-h-[500px]">
+          <motion.div ref={slotRef} className="relative z-20 flex items-center justify-center w-full aspect-square max-w-[460px] perspective-[1400px]">
+            {ring}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
