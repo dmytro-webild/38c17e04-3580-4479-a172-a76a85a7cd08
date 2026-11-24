@@ -68,18 +68,18 @@ export default function TestimonialsCards({
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl px-6 mx-auto">
           {testimonials.map((item, index) => (
             <AppearOnScroll key={item.author} variant={cardAnimation} delay={index * 0.08} className="h-full">
-              <div className="flex flex-col justify-between h-full p-6 md:p-8 card rounded gap-6">
+              <div className="flex flex-col justify-between h-full p-6 md:p-8 card rounded-2xl gap-6 border border-[#1B3D04] bg-[#101210]">
                 <div className="flex flex-col gap-4">
-                  <Quote className="size-8 text-primary opacity-80" />
-                  <p className="text-base md:text-lg leading-relaxed text-foreground/90 italic">
+                  <Quote className="size-8 text-[#B4F82A] opacity-90" />
+                  <p className="text-base md:text-lg leading-relaxed text-[#FFFFFF] italic">
                     "{item.quote}"
                   </p>
                 </div>
 
-                <div className="flex flex-col pt-4 border-t border-border">
-                  <p className="text-base font-semibold leading-snug">{item.author}</p>
-                  <p className="text-sm text-foreground/70">
-                    {item.role} · <span className="text-foreground/90 font-medium">{item.company}</span>
+                <div className="flex flex-col pt-4 border-t border-[#1B3D04]">
+                  <p className="text-base font-semibold leading-snug text-[#FFFFFF]">{item.author}</p>
+                  <p className="text-sm text-[#a1a1aa]">
+                    {item.role} · <span className="text-[#B4F82A] font-medium font-mono">{item.company}</span>
                   </p>
                 </div>
               </div>

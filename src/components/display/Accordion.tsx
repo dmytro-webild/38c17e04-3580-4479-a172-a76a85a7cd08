@@ -19,21 +19,21 @@ const Accordion = ({ items, variant = "card", className = "" }: AccordionProps) 
 
   if (variant === "hairline") {
     return (
-      <div className={cn("flex flex-col border-b border-foreground/15", className)}>
+      <div className={cn("flex flex-col border-b border-[#1B3D04]", className)}>
         {items.map((item, index) => {
           const open = activeIndex === index;
           return (
             <div
               key={index}
-              className="group cursor-pointer select-none border-t border-foreground/15 px-0 py-5 transition-[background-color,padding] duration-300 hover:bg-card hover:px-4"
+              className="group cursor-pointer select-none border-t border-[#1B3D04] px-0 py-5 transition-[background-color,padding] duration-300 hover:bg-[#101210] hover:px-4 rounded-lg"
             >
-              <h3 className="font-sans text-base md:text-lg font-normal leading-snug">
+              <h3 className="font-sans text-base md:text-lg font-medium leading-snug">
                 <button type="button" aria-expanded={open} onClick={() => setActiveIndex(open ? null : index)} className="flex w-full cursor-pointer items-center justify-between gap-4 text-left">
-                  <div>{item.title}</div>
+                  <div className={cn("transition-colors duration-200", open ? "text-[#B4F82A]" : "text-[#FFFFFF] group-hover:text-[#B4F82A]")}>{item.title}</div>
                   <div className="flex shrink-0 items-center gap-4">
-                    {item.meta && <div className="text-sm uppercase tracking-[0.04em]">{item.meta}</div>}
+                    {item.meta && <div className="text-sm font-mono text-[#7CC115] uppercase tracking-[0.04em]">{item.meta}</div>}
                     <Plus
-                      className={cn("size-4 md:size-5 text-current transition-transform duration-300", open && "rotate-45")}
+                      className={cn("size-4 md:size-5 text-[#B4F82A] transition-transform duration-300", open && "rotate-45")}
                       strokeWidth={1.5}
                     />
                   </div>
@@ -48,7 +48,7 @@ const Accordion = ({ items, variant = "card", className = "" }: AccordionProps) 
                     transition={{ duration: 0.3, ease: "easeOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="pt-3 max-w-2xl text-base leading-snug">{item.content}</p>
+                    <p className="pt-3 max-w-2xl text-base leading-snug text-[#a1a1aa]">{item.content}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -68,11 +68,11 @@ const Accordion = ({ items, variant = "card", className = "" }: AccordionProps) 
           className="p-3 xl:p-3.5 2xl:p-4 rounded card cursor-pointer select-none"
         >
           <div className="flex items-center justify-between gap-3 xl:gap-3.5 2xl:gap-4">
-            <h3 className="text-lg md:text-xl font-medium leading-snug">{item.title}</h3>
-            <div className="flex shrink-0 items-center justify-center size-8 md:size-9 rounded bg-primary text-primary-foreground">
+            <h3 className={cn("text-lg md:text-xl font-medium leading-snug transition-colors", activeIndex === index ? "text-[#B4F82A]" : "text-[#FFFFFF]")}>{item.title}</h3>
+            <div className="flex shrink-0 items-center justify-center size-8 md:size-9 rounded bg-[#101210] border border-[#7CC115]/40 text-[#B4F82A]">
               <Plus
                 className={cn(
-                  "size-3.5 md:size-4 text-primary-foreground transition-transform duration-300",
+                  "size-3.5 md:size-4 text-[#B4F82A] transition-transform duration-300",
                   activeIndex === index && "rotate-45"
                 )}
                 strokeWidth={2}
@@ -88,7 +88,7 @@ const Accordion = ({ items, variant = "card", className = "" }: AccordionProps) 
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="overflow-hidden"
               >
-                <p className="pt-1 text-base leading-snug">{item.content}</p>
+                <p className="pt-2 text-base leading-snug text-[#a1a1aa]">{item.content}</p>
               </motion.div>
             )}
           </AnimatePresence>
