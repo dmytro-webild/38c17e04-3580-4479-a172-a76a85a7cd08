@@ -93,30 +93,30 @@ const PricingLayeredEnterprise = ({
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl px-6 mx-auto">
         {plans.map((plan, index) => (
           <AppearOnScroll key={plan.tag} variant={cardAnimation} delay={index * 0.08} className="h-full">
-            <div className="flex flex-col gap-3 xl:gap-3.5 2xl:gap-4 p-3 xl:p-3.5 2xl:p-4 h-full card rounded border border-[#1B3D04]">
-              <div className="flex flex-col gap-3 xl:gap-3.5 2xl:gap-4 p-4 xl:p-5 2xl:p-6 rounded-xl bg-[#101210] border border-[#7CC115]/30 text-[#FFFFFF]">
-                <div className="px-3 py-1 w-fit text-xs font-mono font-bold bg-[#1B3D04] border border-[#7CC115]/40 text-[#B4F82A] rounded-full uppercase tracking-wider">
+            <div className="flex flex-col gap-3 xl:gap-3.5 2xl:gap-4 p-3 xl:p-3.5 2xl:p-4 h-full card rounded border border-border">
+              <div className="flex flex-col gap-3 xl:gap-3.5 2xl:gap-4 p-4 xl:p-5 2xl:p-6 rounded-xl bg-card border border-border text-foreground">
+                <div className="px-3 py-1 w-fit text-xs font-mono font-bold bg-muted border border-border text-primary rounded-full uppercase tracking-wider">
                   <p>{plan.tag}</p>
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <p className="text-3xl md:text-4xl 2xl:text-5xl font-bold leading-none tracking-tight text-[#B4F82A] font-mono">{plan.price}</p>
-                  <p className="text-sm font-medium text-[#a1a1aa] mt-1">{plan.description}</p>
+                  <p className="text-3xl md:text-4xl 2xl:text-5xl font-bold leading-none tracking-tight text-primary font-mono">{plan.price}</p>
+                  <p className="text-sm font-medium text-muted-foreground mt-1">{plan.description}</p>
                 </div>
 
                 <div className="flex flex-col gap-3 mt-1">
-                  <a href={plan.primaryButton.href} className="flex items-center justify-center h-11 px-6 text-sm font-semibold rounded-lg cursor-pointer btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] shadow-[0_0_20px_rgba(180,248,42,0.25)] w-full">{buttonStagger ? <StaggerText text={plan.primaryButton.text} /> : plan.primaryButton.text}</a>
-                  {plan.secondaryButton && <a href={plan.secondaryButton.href} className="flex items-center justify-center h-11 px-6 text-sm font-medium rounded-lg cursor-pointer btn-secondary bg-[#101210] text-[#FFFFFF] border border-[#7CC115] hover:bg-[#1B3D04] w-full">{buttonStagger ? <StaggerText text={plan.secondaryButton.text} /> : plan.secondaryButton.text}</a>}
+                  <a href={plan.primaryButton.href} className="flex items-center justify-center h-11 px-6 text-sm font-semibold rounded-lg cursor-pointer btn-primary w-full">{buttonStagger ? <StaggerText text={plan.primaryButton.text} /> : plan.primaryButton.text}</a>
+                  {plan.secondaryButton && <a href={plan.secondaryButton.href} className="flex items-center justify-center h-11 px-6 text-sm font-medium rounded-lg cursor-pointer btn-secondary w-full">{buttonStagger ? <StaggerText text={plan.secondaryButton.text} /> : plan.secondaryButton.text}</a>}
                 </div>
               </div>
 
               <div className="flex flex-col gap-3 p-3 xl:p-3.5 2xl:p-4">
                 {plan.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
-                    <div className="flex items-center justify-center shrink-0 size-5 bg-[#1B3D04] text-[#B4F82A] border border-[#7CC115]/40 rounded-full mt-0.5">
-                      <Check className="size-3 text-[#B4F82A]" strokeWidth={2.5} />
+                    <div className="flex items-center justify-center shrink-0 size-5 bg-muted text-primary border border-border rounded-full mt-0.5">
+                      <Check className="size-3 text-primary" strokeWidth={2.5} />
                     </div>
-                    <p className="text-sm md:text-base leading-snug text-[#FFFFFF]">{feature}</p>
+                    <p className="text-sm md:text-base leading-snug text-foreground">{feature}</p>
                   </div>
                 ))}
               </div>
@@ -125,17 +125,17 @@ const PricingLayeredEnterprise = ({
         ))}
 
         <AppearOnScroll variant={cardAnimation} delay={plans.length * 0.08} className="md:col-span-2 lg:col-span-3">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-6 md:p-8 card rounded-2xl border border-[#7CC115]/40 bg-[#101210] shadow-2xl">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-6 md:p-8 card rounded-2xl border border-border bg-card shadow-2xl">
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-3">
-                <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold leading-tight text-[#FFFFFF]">{enterprise.title}</h3>
-                <div className="px-3 py-1 w-fit text-xs font-mono font-bold bg-[#1B3D04] border border-[#7CC115]/40 text-[#B4F82A] rounded-full uppercase tracking-wider">
+                <h3 className="text-2xl md:text-3xl 2xl:text-4xl font-bold leading-tight text-foreground">{enterprise.title}</h3>
+                <div className="px-3 py-1 w-fit text-xs font-mono font-bold bg-muted border border-border text-primary rounded-full uppercase tracking-wider">
                   <p>{enterprise.tag}</p>
                 </div>
               </div>
-              <p className="md:max-w-8/10 text-base leading-snug text-balance text-[#a1a1aa]">{enterprise.description}</p>
+              <p className="md:max-w-8/10 text-base leading-snug text-balance text-muted-foreground">{enterprise.description}</p>
             </div>
-            <a href={enterprise.primaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-semibold rounded-lg cursor-pointer btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] shadow-[0_0_20px_rgba(180,248,42,0.25)] shrink-0">{buttonStagger ? <StaggerText text={enterprise.primaryButton.text} /> : enterprise.primaryButton.text}</a>
+            <a href={enterprise.primaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-semibold rounded-lg cursor-pointer btn-primary shrink-0">{buttonStagger ? <StaggerText text={enterprise.primaryButton.text} /> : enterprise.primaryButton.text}</a>
           </div>
         </AppearOnScroll>
       </div>

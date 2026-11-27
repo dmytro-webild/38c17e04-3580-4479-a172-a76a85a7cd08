@@ -232,19 +232,19 @@ const ProjectRowsPreview = ({ items = DEFAULT_ITEMS,headers = ["Name", "Location
               onMouseLeave={() => isPointer.current && hideItem()}
               className="relative flex flex-col w-full py-6 lg:py-10"
             >
-              <div data-intro-line className="absolute top-0 left-0 w-full h-px bg-[#1B3D04]" />
+              <div data-intro-line className="absolute top-0 left-0 w-full h-px bg-border" />
               <div className="flex flex-wrap items-center w-full gap-y-2 lg:gap-y-0">
                 <div className="w-full lg:w-auto lg:flex-1 lg:max-w-[45%]">
-                  <h3 data-intro-text className="text-3xl lg:text-5xl font-normal leading-none text-[#FFFFFF] group-hover:text-[#B4F82A] transition-colors">{item.title}</h3>
+                  <h3 data-intro-text className="text-3xl lg:text-5xl font-normal leading-none text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
                 </div>
                 <div className="hidden lg:block flex-1 max-w-[15%]">
-                  <p data-intro-text className="text-lg leading-tight text-[#a1a1aa]">{item.location}</p>
+                  <p data-intro-text className="text-lg leading-tight text-muted-foreground">{item.location}</p>
                 </div>
                 <div className="order-last flex-1 max-w-[20%] text-right lg:order-none lg:text-left lg:max-w-[15%]">
-                  <p data-intro-text className="text-lg leading-tight text-[#7CC115] font-mono">{item.year}</p>
+                  <p data-intro-text className="text-lg leading-tight text-muted-foreground font-mono">{item.year}</p>
                 </div>
                 <div className="flex-1 max-w-[80%] lg:max-w-[25%]">
-                  <p data-intro-text className="text-lg leading-tight text-[#FFFFFF]">{item.services}</p>
+                  <p data-intro-text className="text-lg leading-tight text-foreground">{item.services}</p>
                 </div>
               </div>
               <div data-source className="hidden">
@@ -255,7 +255,7 @@ const ProjectRowsPreview = ({ items = DEFAULT_ITEMS,headers = ["Name", "Location
                 )}
               </div>
             </a>
-            {index === items.length - 1 && <div data-intro-line className="absolute bottom-0 left-0 w-full h-px bg-[#1B3D04]" />}
+            {index === items.length - 1 && <div data-intro-line className="absolute bottom-0 left-0 w-full h-px bg-border" />}
           </div>
         ))}
       </div>

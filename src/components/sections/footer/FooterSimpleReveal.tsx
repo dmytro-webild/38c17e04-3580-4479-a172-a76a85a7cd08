@@ -17,7 +17,7 @@ const FooterLinkItem = ({ label, href, onClick }: FooterLink) => {
     <a
       href={href}
       onClick={onClick}
-      className="text-base text-[#a1a1aa] hover:text-[#B4F82A] transition-colors cursor-pointer"
+      className="text-base text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
     >
       {label}
     </a>
@@ -29,7 +29,7 @@ const FooterBottomLink = ({ label, href, onClick }: FooterLink) => {
     <a
       href={href}
       onClick={onClick}
-      className="text-sm text-[#a1a1aa] hover:text-[#B4F82A] transition-colors cursor-pointer"
+      className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
     >
       {label}
     </a>
@@ -85,15 +85,15 @@ const FooterSimpleReveal = ({
           data-section="footer"
           ref={footerRef}
           aria-label="Site footer"
-          className="w-full py-15 bg-[#101210] text-[#FFFFFF] border-t border-[#1B3D04]"
+          className="w-full py-15 bg-card text-card-foreground border-t border-border"
         >
           <div className="w-full max-w-6xl px-6 mx-auto">
             <div className="flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-start mb-10">
               <div className="flex flex-col gap-1.5">
-                <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-[#FFFFFF]">{brand}</h2>
+                <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-foreground">{brand}</h2>
                 {address && (
-                  <div className="flex items-center gap-1.5 text-sm text-[#a1a1aa]">
-                    <MapPin className="w-4 h-4 shrink-0 text-[#B4F82A]" />
+                  <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4 shrink-0 text-primary" />
                     <span>{address}</span>
                   </div>
                 )}
@@ -102,7 +102,7 @@ const FooterSimpleReveal = ({
               <div className="w-full md:w-fit flex flex-wrap gap-y-10 md:gap-12">
                 {columns.map((column) => (
                   <div key={column.title} className="flex flex-col items-start gap-3">
-                    <h3 className="text-sm font-mono text-[#7CC115] uppercase tracking-wider truncate">{column.title}</h3>
+                    <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-wider truncate">{column.title}</h3>
                     {column.items.map((item) => (
                       <FooterLinkItem key={item.label} label={item.label} href={item.href} onClick={item.onClick} />
                     ))}
@@ -111,7 +111,7 @@ const FooterSimpleReveal = ({
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-8 border-t border-[#1B3D04]">
+            <div className="flex items-center justify-between pt-8 border-t border-border">
               <p className="text-sm text-[#a1a1aa]">{copyright}</p>
               <div className="flex items-center gap-3">
                 {links.map((link) => (

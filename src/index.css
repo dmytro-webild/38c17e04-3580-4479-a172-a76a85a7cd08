@@ -3,49 +3,29 @@
 @import "./styles/masks.css";
 
 :root {
-  --obsidian: #050505;
-  --graphite: #101210;
-  --lime-deep: #1B3D04;
-  --lime-mid: #7CC115;
-  --acid-lime: #B4F82A;
-  --pure-white: #FFFFFF;
-
-  --primary-cta: #B4F82A;
-  --primary-cta-text: #050505;
-  --secondary-cta: #101210;
-  --secondary-cta-text: #FFFFFF;
-  --background-accent: #1B3D04;
-
-  --background: #050505;
-  --foreground: #FFFFFF;
-  --card: #101210;
-  --card-foreground: #FFFFFF;
+  --background: #09090b;
+  --foreground: #ffffff;
+  --card: #18181b;
+  --card-foreground: #ffffff;
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: var(--primary-cta);
-  --primary-foreground: var(--primary-cta-text);
-  --secondary: var(--secondary-cta);
-  --secondary-foreground: var(--secondary-cta-text);
-  --muted: #101210;
+  --primary: #ffffff;
+  --primary-foreground: #09090b;
+  --secondary: #27272a;
+  --secondary-foreground: #ffffff;
+  --muted: #27272a;
   --muted-foreground: #a1a1aa;
-  --accent: #7CC115;
-  --accent-foreground: #050505;
+  --accent: #3f3f46;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #1B3D04;
-  --input: #101210;
-  --ring: #B4F82A;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #ffffff;
   --radius: 1rem;
 }
 
 @theme inline {
-  --color-obsidian: #050505;
-  --color-graphite: #101210;
-  --color-lime-deep: #1B3D04;
-  --color-lime-mid: #7CC115;
-  --color-acid-lime: #B4F82A;
-  --color-pure-white: #FFFFFF;
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -86,7 +66,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(180, 248, 42, 0.4) rgba(5, 5, 5, 0);
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(9, 9, 11, 0);
 }
 
 html {
@@ -114,60 +94,59 @@ h6 {
   font-family: "Inter", sans-serif;
 }
 
-/* flat cards: Graphite #101210 with hairline Lime Mid border */
+/* flat cards */
 .card {
   backdrop-filter: blur(8px);
-  background: #101210;
-  border: 1px solid color-mix(in srgb, #7CC115 25%, transparent);
+  background: var(--card);
+  border: 1px solid var(--border);
   box-shadow: none;
 }
 
-/* tag pills read as pills on any surface: Lime Deep tint fill and hairline */
+/* tag pills */
 .card.w-fit {
-  background: color-mix(in srgb, #1B3D04 60%, transparent);
-  border-color: color-mix(in srgb, #7CC115 40%, transparent);
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  border-color: var(--border);
 }
 
-/* surfaces nested inside the service cards (stacked task cards, orbit tiles, chat bubbles) are solid Graphite */
+/* surfaces nested inside service cards */
 [data-section="services"] .card .card {
-  background: #101210;
-  border-color: #1B3D04;
+  background: var(--card);
+  border-color: var(--border);
   backdrop-filter: none;
 }
 
-/* the hero's moving logo tiles are solid Graphite */
+/* the hero's moving logo tiles */
 [data-section="hero"] .card {
-  background: #101210;
-  border-color: color-mix(in srgb, #7CC115 30%, transparent);
+  background: var(--card);
+  border-color: var(--border);
   backdrop-filter: none;
 }
 
-/* primary buttons are Acid Lime #B4F82A with dark #050505 text */
+/* primary buttons */
 .btn-primary {
-  background: #B4F82A;
-  color: #050505;
+  background: var(--primary);
+  color: var(--primary-foreground);
   font-weight: 600;
-  box-shadow: 0 0 20px rgba(180, 248, 42, 0.25);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: #7CC115;
-  color: #050505;
-  box-shadow: 0 0 25px rgba(180, 248, 42, 0.4);
+  opacity: 0.9;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary {
-  background: #101210;
-  color: #FFFFFF;
-  border: 1px solid #7CC115;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: #1B3D04;
-  border-color: #B4F82A;
+  background: color-mix(in srgb, var(--secondary) 80%, var(--foreground));
+  border-color: var(--foreground);
 }
 
 /* the page waits for the hero's loader: navbar and light rays fade up once it reveals */
