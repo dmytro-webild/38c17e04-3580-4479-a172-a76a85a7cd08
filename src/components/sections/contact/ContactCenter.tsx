@@ -94,15 +94,15 @@ const ContactCenter = ({
             />
 
             {address && (
-              <div className="flex items-center gap-2 mt-1 px-4 py-2 card rounded-full text-sm text-[#a1a1aa] border border-[#1B3D04]">
-                <MapPin className="w-4 h-4 text-[#B4F82A] shrink-0" />
+              <div className="flex items-center gap-2 mt-1 px-4 py-2 card rounded-full text-sm text-muted-foreground border border-border">
+                <MapPin className="w-4 h-4 text-primary shrink-0" />
                 <span>{address}</span>
               </div>
             )}
 
             <form
               onSubmit={handleSubmit}
-              className={wideContent ? "flex flex-col md:flex-row w-full md:w-8/10 gap-3 md:gap-1 p-1.5 mt-3 card rounded-xl border border-[#7CC115]/40 shadow-2xl" : "flex flex-col md:flex-row w-full md:w-9/10 gap-3 md:gap-1 p-1.5 mt-3 card rounded-xl border border-[#7CC115]/40 shadow-2xl"}
+              className={wideContent ? "flex flex-col md:flex-row w-full md:w-8/10 gap-3 md:gap-1 p-1.5 mt-3 card rounded-xl border border-border shadow-2xl" : "flex flex-col md:flex-row w-full md:w-9/10 gap-3 md:gap-1 p-1.5 mt-3 card rounded-xl border border-border shadow-2xl"}
             >
               <input
                 type="email"
@@ -110,13 +110,13 @@ const ContactCenter = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-5 py-3 md:py-0 text-base text-center md:text-left bg-transparent text-[#FFFFFF] placeholder:text-[#a1a1aa] focus:outline-none truncate font-sans"
+                className="flex-1 px-5 py-3 md:py-0 text-base text-center md:text-left bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none truncate font-sans"
                 aria-label="Email address"
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex items-center justify-center h-12 px-7 text-sm font-semibold rounded-lg btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0 gap-2 shadow-[0_0_20px_rgba(180,248,42,0.25)]"
+                className="flex items-center justify-center h-12 px-7 text-sm font-semibold rounded-lg btn-primary cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shrink-0 gap-2"
               >
                 {isLoading ? (
                   "Connecting..."

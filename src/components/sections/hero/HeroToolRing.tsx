@@ -230,22 +230,22 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
         </div>
 
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
-          <div className="flex flex-col items-center justify-center p-5 md:p-7 rounded-2xl bg-[#101210]/95 backdrop-blur-lg border border-[#7CC115]/40 shadow-2xl text-center min-w-[190px] md:min-w-[220px]">
+          <div className="flex flex-col items-center justify-center p-5 md:p-7 rounded-2xl bg-card/95 backdrop-blur-lg border border-border shadow-2xl text-center min-w-[190px] md:min-w-[220px]">
             <div className="flex items-baseline justify-center gap-0.5">
               <NumberFlow
                 value={count}
                 format={{ minimumIntegerDigits: 2 }}
-                className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight tabular-nums text-[#B4F82A]"
+                className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight tabular-nums text-foreground"
               />
-              <span className="text-3xl md:text-5xl font-extrabold text-[#B4F82A]">+</span>
+              <span className="text-3xl md:text-5xl font-extrabold text-foreground">+</span>
             </div>
             <motion.p
               initial={{ opacity: 0, y: 6 }}
               animate={isRevealed ? { opacity: 1, y: 0 } : undefined}
               transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-              className="flex items-center justify-center gap-2 mt-2 text-xs md:text-sm font-semibold text-[#FFFFFF] whitespace-nowrap"
+              className="flex items-center justify-center gap-2 mt-2 text-xs md:text-sm font-semibold text-foreground whitespace-nowrap"
             >
-              <span aria-hidden="true" className="size-2 rounded-full bg-[#B4F82A] animate-pulse" />
+              <span aria-hidden="true" className="size-2 rounded-full bg-primary animate-pulse" />
               {stat.label}
             </motion.p>
           </div>
@@ -269,9 +269,9 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
 
   const buttons = (
     <>
-      <a href={primaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-semibold rounded-xl cursor-pointer btn-primary bg-[#B4F82A] text-[#050505] hover:bg-[#7CC115] shadow-[0_0_20px_rgba(180,248,42,0.25)]"><StaggerText text={primaryButton.text} /></a>
+      <a href={primaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-semibold rounded-xl cursor-pointer btn-primary"><StaggerText text={primaryButton.text} /></a>
       {secondaryButton && (
-        <a href={secondaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-medium rounded-xl cursor-pointer btn-secondary bg-[#101210] text-[#FFFFFF] border border-[#7CC115] hover:bg-[#1B3D04]"><StaggerText text={secondaryButton.text} /></a>
+        <a href={secondaryButton.href} className="flex items-center justify-center h-11 px-7 text-sm font-medium rounded-xl cursor-pointer btn-secondary"><StaggerText text={secondaryButton.text} /></a>
       )}
     </>
   );
@@ -283,23 +283,23 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
       data-revealed={isRevealed}
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
-      className="relative flex items-center min-h-svh pt-25 pb-20 md:py-0 overflow-hidden bg-[#050505]"
+      className="relative flex items-center min-h-svh pt-25 pb-20 md:py-0 overflow-hidden bg-background"
     >
       <motion.div
         aria-hidden="true"
         style={{ scaleY: barScale }}
         animate={{ opacity: isRevealed ? 0 : 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="absolute inset-y-0 left-0 w-1 origin-bottom bg-[#B4F82A]"
+        className="absolute inset-y-0 left-0 w-1 origin-bottom bg-primary"
       />
 
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 w-full max-w-7xl px-6 mx-auto min-h-[calc(100vh-6rem)]">
-        {/* Dedicated Left Container with z-30, max-w-xl, and Obsidian backdrop fade */}
-        <div className="relative z-30 flex flex-col items-center md:items-start gap-4 md:gap-6 w-full lg:w-1/2 max-w-xl p-6 md:p-8 rounded-3xl bg-gradient-to-r from-[#050505] via-[#050505]/95 to-[#050505]/40 backdrop-blur-md border border-[#1B3D04]/30 shadow-2xl text-center md:text-left">
-          <h1 aria-label={`${title} ${titleMuted}`} className="text-4xl md:text-6xl 2xl:text-7xl font-medium leading-[1.05] tracking-tight text-[#FFFFFF]">
+        {/* Dedicated Left Container */}
+        <div className="relative z-30 flex flex-col items-center md:items-start gap-4 md:gap-6 w-full lg:w-1/2 max-w-xl p-6 md:p-8 rounded-3xl bg-gradient-to-r from-background via-background/95 to-background/40 backdrop-blur-md border border-border/30 shadow-2xl text-center md:text-left">
+          <h1 aria-label={`${title} ${titleMuted}`} className="text-4xl md:text-6xl 2xl:text-7xl font-medium leading-[1.05] tracking-tight text-foreground">
             <span aria-hidden="true">
               {line(title, 0)}
-              {line(titleMuted, 1, "text-[#B4F82A]")}
+              {line(titleMuted, 1, "text-foreground/80")}
             </span>
           </h1>
           <motion.div
@@ -308,11 +308,11 @@ const HeroToolRing = ({ title, titleMuted, description, detail, stat, primaryBut
             transition={{ duration: 1, delay: 0.65, ease: EASE }}
             className="flex flex-col items-center md:items-start gap-4 md:gap-6"
           >
-            {description && <p className="text-base md:text-lg 2xl:text-xl leading-snug text-balance text-[#a1a1aa]">{description}</p>}
+            {description && <p className="text-base md:text-lg 2xl:text-xl leading-snug text-balance text-muted-foreground">{description}</p>}
             <div className="flex flex-wrap justify-center md:justify-start gap-3 md:mt-1">{buttons}</div>
             {detail && (
-              <p className="flex items-center gap-2 md:mt-1 text-xs md:text-sm text-[#7CC115] font-mono">
-                <span aria-hidden="true" className="size-2 rounded-full bg-[#B4F82A] animate-pulse" />
+              <p className="flex items-center gap-2 md:mt-1 text-xs md:text-sm text-muted-foreground font-mono">
+                <span aria-hidden="true" className="size-2 rounded-full bg-primary animate-pulse" />
                 {detail.title}: {detail.description}
               </p>
             )}

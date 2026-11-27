@@ -19,21 +19,21 @@ const Accordion = ({ items, variant = "card", className = "" }: AccordionProps) 
 
   if (variant === "hairline") {
     return (
-      <div className={cn("flex flex-col border-b border-[#1B3D04]", className)}>
+      <div className={cn("flex flex-col border-b border-border", className)}>
         {items.map((item, index) => {
           const open = activeIndex === index;
           return (
             <div
               key={index}
-              className="group cursor-pointer select-none border-t border-[#1B3D04] px-0 py-5 transition-[background-color,padding] duration-300 hover:bg-[#101210] hover:px-4 rounded-lg"
+              className="group cursor-pointer select-none border-t border-border px-0 py-5 transition-[background-color,padding] duration-300 hover:bg-card/50 hover:px-4 rounded-lg"
             >
               <h3 className="font-sans text-base md:text-lg font-medium leading-snug">
                 <button type="button" aria-expanded={open} onClick={() => setActiveIndex(open ? null : index)} className="flex w-full cursor-pointer items-center justify-between gap-4 text-left">
-                  <div className={cn("transition-colors duration-200", open ? "text-[#B4F82A]" : "text-[#FFFFFF] group-hover:text-[#B4F82A]")}>{item.title}</div>
+                  <div className={cn("transition-colors duration-200", open ? "text-primary" : "text-foreground group-hover:text-primary")}>{item.title}</div>
                   <div className="flex shrink-0 items-center gap-4">
-                    {item.meta && <div className="text-sm font-mono text-[#7CC115] uppercase tracking-[0.04em]">{item.meta}</div>}
+                    {item.meta && <div className="text-sm font-mono text-muted-foreground uppercase tracking-[0.04em]">{item.meta}</div>}
                     <Plus
-                      className={cn("size-4 md:size-5 text-[#B4F82A] transition-transform duration-300", open && "rotate-45")}
+                      className={cn("size-4 md:size-5 text-primary transition-transform duration-300", open && "rotate-45")}
                       strokeWidth={1.5}
                     />
                   </div>
@@ -68,11 +68,11 @@ const Accordion = ({ items, variant = "card", className = "" }: AccordionProps) 
           className="p-3 xl:p-3.5 2xl:p-4 rounded card cursor-pointer select-none"
         >
           <div className="flex items-center justify-between gap-3 xl:gap-3.5 2xl:gap-4">
-            <h3 className={cn("text-lg md:text-xl font-medium leading-snug transition-colors", activeIndex === index ? "text-[#B4F82A]" : "text-[#FFFFFF]")}>{item.title}</h3>
-            <div className="flex shrink-0 items-center justify-center size-8 md:size-9 rounded bg-[#101210] border border-[#7CC115]/40 text-[#B4F82A]">
+            <h3 className={cn("text-lg md:text-xl font-medium leading-snug transition-colors", activeIndex === index ? "text-primary" : "text-foreground")}>{item.title}</h3>
+            <div className="flex shrink-0 items-center justify-center size-8 md:size-9 rounded bg-muted border border-border text-primary">
               <Plus
                 className={cn(
-                  "size-3.5 md:size-4 text-[#B4F82A] transition-transform duration-300",
+                  "size-3.5 md:size-4 text-primary transition-transform duration-300",
                   activeIndex === index && "rotate-45"
                 )}
                 strokeWidth={2}
